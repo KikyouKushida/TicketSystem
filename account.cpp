@@ -6,31 +6,30 @@
 #include <cmath>
 #include <fstream>
 #include <filesystem>
-#include "BPT.hpp"
 #include <cassert>
 #include <functional>
 #include <memory>
 
 #endif
 
+#include "account.hpp"
 
+account_system::account(const std::string &user_name_, const std::string &password_, const std::string &name_, const std::string &mailAddr_, int &privilege_):
+index(user_name_), value(password_, name_, mailAddr_, privilege_){}
 
-class account_system{
-  class account{
-    Char *user_name, *password, *name, *mailAddr;
-    int privilege;
-    account(const std::string &user_name_, const std::string &password_, const std::string &name_, const std::string &mailAddr_, int &privilege_){
-      user_name = Char(user_name_, 21);
-      password = Char(password_, 31);
-      name = Char(name_, 16);
-      mailAddr = Char(mailAddr_, 31);
-      privilege = privilege_;
-    }
-    ~account(){
-      delete user_name;
-      delete pass_word;
-      delete name;
-      delete mailAddr;
-    }
-  };
-};
+account_system::~account(){}
+
+account_system::account(const account &other): index(other.index), value(other.value){}
+
+account_system::account& account_system::operator=(const account &other){
+  if(this == &other);
+  else {
+    index = index_type(other.index);
+    value = value_type(other.value);
+  }
+  return *this;
+}
+
+account_system::account_system(){
+  logined = new BPT()
+}
