@@ -1,20 +1,7 @@
-#ifndef Inc
-#define Inc
-
-#include <iostream>
-#include <string>
-#include <cmath>
-#include <fstream>
-#include <filesystem>
-#include <cassert>
-#include <functional>
-#include <memory>
-
-#endif
-
 #include "BPT.hpp"
 
-void BPT::construct_from_empty(){
+template<class T1, class T2>
+void BPT<T1, T2>::construct_from_empty(){
   internal_file.open(internal_file_name, std::ios::out | std::ios::binary);
   leaf_file.open(leaf_file_name, std::ios::out | std::ios::binary);
   internal_file.close();
@@ -52,7 +39,8 @@ void BPT::construct_from_empty(){
   return ;
 }
 
-void BPT::construct_from_last(){
+template<class T1, class T2>
+void BPT<T1, T2>::construct_from_last(){
   ext_file.open(ext_file_name, std::ios::in | std::ios::binary);
   ext_file.seekg(0, std::ios::beg);
   ext_file.read(reinterpret_cast<char *>(&node_count), 4);
@@ -72,7 +60,8 @@ void BPT::construct_from_last(){
   return ;
 }
 
-BPT::BPT(const int &m, const int &l, const std::string &internal_file_name_, const std::string &leaf_file_name_, 
+template<class T1, class T2>
+BPT<T1, T2>::BPT(const int &m, const int &l, const std::string &internal_file_name_, const std::string &leaf_file_name_, 
 const std::string &ext_file_name_, const int &MAX_N_, const int &MAX_cache_): 
 internal_file_name(internal_file_name_), leaf_file_name(leaf_file_name_), ext_file_name(ext_file_name_), M(m), L(l), MAX_N(MAX_N_), MAX_cache(MAX_cache_){
   cache = new char*[MAX_cache + 5];
@@ -84,7 +73,8 @@ internal_file_name(internal_file_name_), leaf_file_name(leaf_file_name_), ext_fi
   else ext_file.close(), construct_from_last();
 }
 
-BPT::~BPT(){
+template<class T1, class T2>
+BPT<T1, T2>::~BPT(){
   ext_file.open(ext_file_name, std::ios::out | std::ios::binary);
   ext_file.seekp(0, std::ios::beg);
   ext_file.write(reinterpret_cast<char *>(&node_count), 4);
@@ -110,21 +100,28 @@ BPT::~BPT(){
   delete[] rb;
 }
 
-BPT::ret_data::ret_data(): splited(false){}
-BPT::ret_data::ret_data(const bool &splited_, const T1 &y_index_, const int &new_node_id_): 
+template<class T1, class T2>
+BPT<T1, T2>::ret_data::ret_data(): splited(false){}
+
+template<class T1, class T2>
+BPT<T1, T2>::ret_data::ret_data(const bool &splited_, const T1 &y_index_, const int &new_node_id_): 
 splited(splited_), y_index(y_index_), new_node_id(new_node_id_){}
-BPT::ret_data::ret_data(const ret_data &other){
+
+template<class T1, class T2>
+BPT<T1, T2>::ret_data::ret_data(const ret_data &other){
   splited = other.splited;
   y_index = other.y_index;
   new_node_id = other.new_node_id;
 }
 
-int BPT::in_cache(int node_id){
+template<class T1, class T2>
+int BPT<T1, T2>::in_cache(int node_id){
   for(int i = 1; i <= MAX_cache; ++i) if(cache[i] != nullptr && cache_id[i] == node_id) return i;
   return 0;
 }
 
-void BPT::Write_back(char *s, int node_id){
+template<class T1, class T2>
+void BPT<T1, T2>::Write_back(char *s, int node_id){
   if(is_leaf[node_id]){
     leaf_file.open(leaf_file_name, std::ios::in | std::ios::out | std::ios::binary);
     leaf_file.seekp(loc[node_id], std::ios::beg);
@@ -140,7 +137,8 @@ void BPT::Write_back(char *s, int node_id){
   return ;
 }
 
-BPT::page::page(int node_id_, BPT *bpt_): bpt(bpt_), node_id(node_id_){
+template<class T1, class T2>
+BPT<T1, T2>::page::page(int node_id_, BPT *bpt_): bpt(bpt_), node_id(node_id_){
   s = new char[4096]();
   modified = false;
   int where = bpt->in_cache(node_id);
@@ -177,7 +175,7 @@ BPT::page::page(int node_id_, BPT *bpt_): bpt(bpt_), node_id(node_id_){
     Read(s, ptr, size);
     p_index = new T1[bpt->M + 5]();
     chd_id = new int[bpt->M + 5]();
-    for(int i = 1; i <= size - 1; ++i) Read(s, ptr, p_index[i]);
+    for(int i = 1; i <= size - 1; ++i) p_index[i].Read(s, ptr);
     for(int i = 1; i <= size; ++i) Read(s, ptr, chd_id[i]);
   }
   else{
@@ -187,12 +185,13 @@ BPT::page::page(int node_id_, BPT *bpt_): bpt(bpt_), node_id(node_id_){
     p_index = new T1[bpt->L + 5]();
     p_value = new T2[bpt->L + 5]();
     chd_id = nullptr;
-    for(int i = 1; i <= size; ++i) Read(s, ptr, p_index[i]);
-    for(int i = 1; i <= size; ++i) Read(s, ptr, p_value[i]);
+    for(int i = 1; i <= size; ++i) p_index[i].Read(s, ptr);
+    for(int i = 1; i <= size; ++i) p_value[i].Read(s, ptr);
   }
 }
 
-BPT::page::page(int node_id_, char *node_s, BPT *bpt_){
+template<class T1, class T2>
+BPT<T1, T2>::page::page(int node_id_, char *node_s, BPT *bpt_){
   s = new char[4096]();
   memcpy(s, node_s, 4096);
   modified = true;
@@ -215,7 +214,7 @@ BPT::page::page(int node_id_, char *node_s, BPT *bpt_){
     p_index = new T1[bpt->M + 5]();
     p_value = new T2[bpt->M + 5]();
     chd_id = new int[bpt->M + 5]();
-    for(int i = 1; i <= size - 1; ++i) Read(s, ptr, p_index[i]);
+    for(int i = 1; i <= size - 1; ++i) p_index[i].Read(s, ptr);
     for(int i = 1; i <= size; ++i) Read(s, ptr, chd_id[i]);
   }
   else{
@@ -225,19 +224,20 @@ BPT::page::page(int node_id_, char *node_s, BPT *bpt_){
     p_index = new T1[bpt->L + 5]();
     p_value = new T2[bpt->L + 5]();
     chd_id = nullptr;
-    for(int i = 1; i <= size; ++i) Read(s, ptr, p_index[i]);
-    for(int i = 1; i <= size; ++i) Read(s, ptr, p_value[i]);
+    for(int i = 1; i <= size; ++i) p_index[i].Read(s, ptr);
+    for(int i = 1; i <= size; ++i) p_value[i].Read(s, ptr);
   }
 }
 
-BPT::page::~page(){
+template<class T1, class T2>
+BPT<T1, T2>::page::~page(){
   int where = bpt->in_cache(node_id);
   if(modified == true){
     if(is_leaf == false){
       int ptr = 0;
       memset(s, 0, 4096);
       Write(s, ptr, size);
-      for(int i = 1; i <= size - 1; ++i) Write(s, ptr, p_index[i]);
+      for(int i = 1; i <= size - 1; ++i) p_index[i].Write(s, ptr);
       for(int i = 1; i <= size; ++i) Write(s, ptr, chd_id[i]);
       if(where == 0){
         bpt->internal_file.open(bpt->internal_file_name, std::ios::in | std::ios::out | std::ios::binary);
@@ -250,8 +250,8 @@ BPT::page::~page(){
       int ptr = 0;
       memset(s, 0, 4096);
       Write(s, ptr, size);
-      for(int i = 1; i <= size; ++i) Write(s, ptr, p_index[i]);
-      for(int i = 1; i <= size; ++i) Write(s, ptr, p_value[i]);
+      for(int i = 1; i <= size; ++i) p_index[i].Write(s, ptr);
+      for(int i = 1; i <= size; ++i) p_value[i].Write(s, ptr);
       if(where == 0){
         bpt->leaf_file.open(bpt->leaf_file_name, std::ios::in | std::ios::out | std::ios::binary);
         bpt->leaf_file.seekp(bpt->loc[node_id], std::ios::beg);
@@ -269,7 +269,8 @@ BPT::page::~page(){
   delete[] chd_id;
 }
 
-BPT::ret_data BPT::Insert_(int now, const T1 &x_index, const T2 &x_value){
+template<class T1, class T2>
+typename BPT<T1, T2>::ret_data BPT<T1, T2>::Insert_(int now, const T1 &x_index, const T2 &x_value){
   page cur(now, this); 
   if(is_leaf[now] == true){
     cur.modified = true;
@@ -299,8 +300,8 @@ BPT::ret_data BPT::Insert_(int now, const T1 &x_index, const T2 &x_value){
     int ptr = 0;
     char *temp = new char[4096]();
     Write(temp, ptr, s2);
-    for(int i = 1; i <= s2; ++i) Write(temp, ptr, cur.p_index[s1 + i]);
-    for(int i = 1; i <= s2; ++i) Write(temp, ptr, cur.p_value[s1 + i]);
+    for(int i = 1; i <= s2; ++i) cur.p_index[s1 + i].Write(temp, ptr);
+    for(int i = 1; i <= s2; ++i) cur.p_value[s1 + i].Write(temp, ptr);
     assert(ptr <= 4096);
     page new_splited(node_count, temp, this);
     for(int i = 1; i <= s2; ++i){
@@ -342,7 +343,7 @@ BPT::ret_data BPT::Insert_(int now, const T1 &x_index, const T2 &x_value){
       int ptr = 0;
       char *temp = new char[4096]();
       Write(temp, ptr, s2 + 1);
-      for(int i = 1; i <= s2; ++i) Write(temp, ptr, cur.p_index[s1 + 1 + i]);
+      for(int i = 1; i <= s2; ++i) cur.p_index[s1 + 1 + i].Write(temp, ptr);
       for(int i = 1; i <= s2 + 1; ++i) Write(temp, ptr, cur.chd_id[s1 + 1 + i]);
       assert(ptr <= 4096);
       page new_splited(node_count, temp, this);
@@ -361,7 +362,8 @@ BPT::ret_data BPT::Insert_(int now, const T1 &x_index, const T2 &x_value){
   return ret_data();
 }
 
-void BPT::Insert(const T1 &x_index, const T2 &x_value){
+template<class T1, class T2>
+void BPT<T1, T2>::Insert(const T1 &x_index, const T2 &x_value){
   ret_data res = Insert_(root, x_index, x_value);
   if(res.splited == true){
     node_count = node_count + 1;
@@ -371,7 +373,7 @@ void BPT::Insert(const T1 &x_index, const T2 &x_value){
     int ptr = 0;
     char *temp = new char[4096]();
     Write(temp, ptr, 2);
-    Write(temp, ptr, res.y_index);
+    res.y_index.Write(temp, ptr);
     Write(temp, ptr, root);
     Write(temp, ptr, res.new_node_id);
     assert(ptr <= 4096);
@@ -382,7 +384,8 @@ void BPT::Insert(const T1 &x_index, const T2 &x_value){
   return ;
 }
 
-bool BPT::Delete_(int now, const T1 &x_index){
+template<class T1, class T2>
+bool BPT<T1, T2>::Delete_(int now, const T1 &x_index){
   page cur(now, this);
   if(is_leaf[now]){
     for(int i = 1; i <= cur.size; ++i) 
@@ -569,13 +572,15 @@ bool BPT::Delete_(int now, const T1 &x_index){
   return false;
 }
 
-void BPT::Delete(const T1 &x_index){
+template<class T1, class T2>
+void BPT<T1, T2>::Delete(const T1 &x_index){
   if(current_size == 0) return ;
   Delete_(root, x_index);
   return ;
 }
 
-BPT::ret_data BPT::print(int now){
+template<class T1, class T2>
+typename BPT<T1, T2>::ret_data BPT<T1, T2>::print(int now){
   ret_data res;
   remosk printf("node_id = %d, ", now);
   remosk {
@@ -593,8 +598,8 @@ BPT::ret_data BPT::print(int now){
     T1 *p_index = new T1[size + 1];
     T2 *p_value = new T2[size + 1];
     remosk printf("size = %d, ", size);
-    for(int i = 1; i <= size; ++i) Read(temp, ptr, p_index[i]);
-    for(int i = 1; i <= size; ++i) Read(temp, ptr, p_value[i]);
+    for(int i = 1; i <= size; ++i) p_index[i].Read(temp, ptr);
+    for(int i = 1; i <= size; ++i) p_value[i].Read(temp, ptr);
     for(int i = 1; i <= size - 1; ++i)
       if(p_index[i] > p_index[i + 1]) assert(0);
       else if(p_index[i] == p_index[i + 1] && p_value[i] > p_value[i + 1]) assert(0);
@@ -615,8 +620,8 @@ BPT::ret_data BPT::print(int now){
     T2 *p_value = new T2[size];
     int *chd_id = new int[size + 1];
     remosk printf("size = %d, ", size);
-    for(int i = 1; i <= size - 1; ++i) Read(temp, ptr, p_index[i]);
-    for(int i = 1; i <= size - 1; ++i) Read(temp, ptr, p_value[i]);
+    for(int i = 1; i <= size - 1; ++i) p_index[i].Read(temp, ptr);
+    for(int i = 1; i <= size - 1; ++i) p_value[i].Read(temp, ptr);
     for(int i = 1; i <= size; ++i) Read(temp, ptr, chd_id[i]);
     if(size <= 0) assert(0);
     for(int i = 1; i <= size - 2; ++i) 
@@ -643,19 +648,22 @@ BPT::ret_data BPT::print(int now){
   return res;
 }
 
-void BPT::print(){
+template<class T1, class T2>
+void BPT<T1, T2>::print(){
   print(root);
   return ;
 }
 
-void BPT::check_rb(){
+template<class T1, class T2>
+void BPT<T1, T2>::check_rb(){
   int fik_count = 0;
   for(int i = 1; i <= node_count; ++i) if(is_leaf[i] && rb[i] == 0) ++fik_count;
   assert(fik_count == 1);
   return ;
 }
 
-BPT::T2 BPT::find(const T1 &x_index){
+template<class T1, class T2>
+T2 BPT<T1, T2>::find(const T1 &x_index){
   if(current_size == 0) return T2(); 
   int now = root;
   while(!is_leaf[now]){
@@ -673,9 +681,10 @@ BPT::T2 BPT::find(const T1 &x_index){
       return cur.p_value[i]; 
     else if(cur.p_index[i] > x_index) 
       break;
-  return =T2();
+  return T2();
 }
 
-bool BPT::is_scratch(){
+template<class T1, class T2>
+bool BPT<T1, T2>::is_scratch(){
   return node_count == 0;
 }

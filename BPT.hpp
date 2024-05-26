@@ -1,6 +1,4 @@
-#ifndef Inc
-#define Inc
-
+#include <cstring>
 #include <string>
 #include <iostream>
 #include <memory>
@@ -10,7 +8,12 @@
 #include <cassert>
 #include <cstdlib>
 
-#endif
+#pragma once
+
+#ifndef BPT_
+#define BPT_
+
+#include "general.hpp"
 
 const bool Printing = false;
 #define remosk if(Printing == true)
@@ -47,7 +50,7 @@ private:
     T1 y_index;
     int new_node_id;
     ret_data();
-    ret_data(const bool &splited_, const T1 &y_index_, const T2 &y_value_, const int &new_node_id_);
+    ret_data(const bool &splited_, const T1 &y_index_, const int &new_node_id_);
     ret_data(const ret_data &other);
   };
   int in_cache(int node_id);
@@ -68,10 +71,14 @@ private:
   bool Delete_(int now, const T1 &x_index);
 public:
   void Insert(const T1 &x_index, const T2 &x_value);
-  void Find(const T1 &x_index);
+  T2 find(const T1 &x_index);
   void Delete(const T1 &x_index);
 	ret_data print(int now);
 	void print();
 	void check_rb();
   bool is_scratch();
 };
+
+#include "BPT.cpp"
+
+#endif

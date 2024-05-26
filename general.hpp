@@ -1,21 +1,18 @@
-#ifndef Inc
-#define Inc
-
-#include <iostream>
+#include <cstring>
 #include <string>
-#include <cmath>
-#include <fstream>
-#include <filesystem>
-#include <cassert>
-#include <functional>
+#include <iostream>
 #include <memory>
-#include "BPT.hpp"
+#include <cstdio>
+#include <fstream>
+#include <functional>
+#include <cassert>
+#include <cstdlib>
+#include "vector.hpp"
 
-#endif
+#pragma once
 
-int strlen(char *s){
-  for(int i = 0;; ++i) if(s[i] == '\0') return i;
-}
+#ifndef general_
+#define general_
 
 template<class T>
 T& max(T &a, T &b){
@@ -35,21 +32,21 @@ public:
   char *s;
   int len, max_size;
 public:
-  Char(std::fstream &this_file, int &max_size_){
+  Char(std::fstream &this_file, const int &max_size_){
     s = new char[max_size]();
     max_size = max_size_;
     this_file.read(s, max_size);
     len = strlen(s);
   }
-  void write(std::fstream &this_file){
+  void write(std::fstream &this_file) const{
     this_file.write(s, max_size);
   }
-  Char(int &max_size_){
+  Char(const int &max_size_){
     s = new char[max_size]();
     len = 0;
     max_size = max_size_;
   }
-  Char(char *ss, int &max_size_){
+  Char(char *ss, const int &max_size_){
     max_size = max_size_;
     s = new char[max_size]();
     len = strlen(ss);
@@ -57,13 +54,13 @@ public:
     for(int i = 0; i < len; ++i) s[i] = ss[i];
   }
   Char(const Char &other){
-    max_size = max_size_;
+    max_size = other.max_size;
     s = new char[max_size]();
     len = other.len;
     for(int i = 0; i < max_size; ++i) s[i] = 0;
     for(int i = 0; i < len; ++i) s[i] = other.s[i];
   }
-	Char(const std::string &other, int &max_size_){
+	Char(const std::string &other, const int &max_size_){
     max_size = max_size_;
 		s = new char[max_size]();
 		len = other.size();
@@ -111,16 +108,16 @@ public:
     for(int i = 0; i < y.len; ++i) os << y[i];
     return os;
   } 
-  ull hash(){
+  ull my_hash() const{
     ull res = 0;
-    for(int i = 0; i < len; ++i) res *= 197, res += s[i] - 'a' + 5;
+    for(int i = 0; i < len; ++i) res *= Prime, res += s[i] - 'a' + 5;
     return res;
   }
 };
 
-ull hash(const std::string &s){
+inline ull my_hash(const std::string &s) {
   ull res = 0;
-  for(int i = 0; i < len; ++i) res *= 197, res += s[i] - 'a' + 5;
+  for(int i = 0; i < s.size(); ++i) res *= Prime, res += s[i] - 'a' + 5;
   return res;
 }
 
@@ -228,3 +225,4 @@ public:
 
 };
 
+#endif

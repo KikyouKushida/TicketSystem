@@ -1,5 +1,3 @@
-#ifndef Inc
-#define Inc
 
 #include <cstring>
 #include <string>
@@ -11,7 +9,10 @@
 #include <cassert>
 #include <cstdlib>
 
-#endif
+#pragma once
+
+#ifndef vector_
+#define vector_
 
 namespace sjtu 
 {
@@ -560,3 +561,5 @@ public:
 
 
 }
+
+#endif
