@@ -122,6 +122,7 @@ private:
 public:
   account_system() = delete;
   account_system(const int &M, const int &L, const int &MAX_N, const int &MAX_cache);
+  ~account_system();
   void Add_user(const Char &cur_username, const Char &x_username, const Char &x_password, const Char &x_name, const Char &x_mailAddr, const int &x_privilege);
   void Login(const Char &x_username, const Char &x_password);
   void Logout(const Char &x_username);

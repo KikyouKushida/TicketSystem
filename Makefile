@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named your_executable_name
+# Target rules for targets named code
 
 # Build rule for target.
-your_executable_name: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 your_executable_name
-.PHONY : your_executable_name
+code: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 code
+.PHONY : code
 
 # fast build rule for target.
-your_executable_name/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/build
-.PHONY : your_executable_name/fast
+code/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/build
+.PHONY : code/fast
 
 account.o: account.cpp.o
 .PHONY : account.o
 
 # target to build an object file
 account.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/account.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/account.cpp.o
 .PHONY : account.cpp.o
 
 account.i: account.cpp.i
@@ -142,7 +142,7 @@ account.i: account.cpp.i
 
 # target to preprocess a source file
 account.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/account.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/account.cpp.i
 .PHONY : account.cpp.i
 
 account.s: account.cpp.s
@@ -150,7 +150,7 @@ account.s: account.cpp.s
 
 # target to generate assembly for a file
 account.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/account.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/account.cpp.s
 .PHONY : account.cpp.s
 
 code.o: code.cpp.o
@@ -158,7 +158,7 @@ code.o: code.cpp.o
 
 # target to build an object file
 code.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/code.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/code.cpp.o
 .PHONY : code.cpp.o
 
 code.i: code.cpp.i
@@ -166,7 +166,7 @@ code.i: code.cpp.i
 
 # target to preprocess a source file
 code.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/code.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/code.cpp.i
 .PHONY : code.cpp.i
 
 code.s: code.cpp.s
@@ -174,7 +174,7 @@ code.s: code.cpp.s
 
 # target to generate assembly for a file
 code.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/code.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/code.cpp.s
 .PHONY : code.cpp.s
 
 # Help Target
@@ -185,7 +185,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... your_executable_name"
+	@echo "... code"
 	@echo "... account.o"
 	@echo "... account.i"
 	@echo "... account.s"

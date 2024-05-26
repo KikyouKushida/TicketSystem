@@ -19,6 +19,13 @@ account_system::account_system(const int &M, const int &L, const int &MAX_N, con
   }
 }
 
+account_system::~account_system(){
+  other_file.open("other_data.txt", std::ios::out | std::ios::binary);
+  other_file.seekp(0, std::ios::beg);
+  other_file.write(reinterpret_cast<char *>(&user_count), sizeof(int));
+  other_file.close();
+}
+
 bool account_system::have_logined(const Char &this_username){
   value_type tmp_loc = logined->find(index_type(this_username.my_hash()));
   account_data tmp_data(this, tmp_loc.loc);
