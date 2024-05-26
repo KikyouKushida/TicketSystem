@@ -28,13 +28,22 @@ T& min(T &a, T &b){
 }
 
 typedef unsigned long long ull;
-const ull Prime = 197;
+const ull Prime = 317;
 
 class Char{
 public:
   char *s;
   int len, max_size;
 public:
+  Char(std::fstream &this_file, int &max_size_){
+    s = new char[max_size]();
+    max_size = max_size_;
+    this_file.read(s, max_size);
+    len = strlen(s);
+  }
+  void write(std::fstream &this_file){
+    this_file.write(s, max_size);
+  }
   Char(int &max_size_){
     s = new char[max_size]();
     len = 0;
@@ -108,6 +117,12 @@ public:
     return res;
   }
 };
+
+ull hash(const std::string &s){
+  ull res = 0;
+  for(int i = 0; i < len; ++i) res *= 197, res += s[i] - 'a' + 5;
+  return res;
+}
 
 inline void Write(char *s, int &loc, const int &value){
   s[loc] = static_cast<unsigned char>((value >> 24) & 0xFF);
@@ -212,3 +227,4 @@ public:
   }
 
 };
+

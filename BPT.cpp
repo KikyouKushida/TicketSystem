@@ -111,12 +111,11 @@ BPT::~BPT(){
 }
 
 BPT::ret_data::ret_data(): splited(false){}
-BPT::ret_data::ret_data(const bool &splited_, const T1 &y_index_, const T2 &y_value_, const int &new_node_id_): 
-splited(splited_), y_index(y_index_), y_value(y_value_), new_node_id(new_node_id_){}
+BPT::ret_data::ret_data(const bool &splited_, const T1 &y_index_, const int &new_node_id_): 
+splited(splited_), y_index(y_index_), new_node_id(new_node_id_){}
 BPT::ret_data::ret_data(const ret_data &other){
   splited = other.splited;
   y_index = other.y_index;
-	y_value = other.y_value;
   new_node_id = other.new_node_id;
 }
 
@@ -177,10 +176,8 @@ BPT::page::page(int node_id_, BPT *bpt_): bpt(bpt_), node_id(node_id_){
     int ptr = 0;
     Read(s, ptr, size);
     p_index = new T1[bpt->M + 5]();
-    p_value = new T2[bpt->M + 5]();
     chd_id = new int[bpt->M + 5]();
     for(int i = 1; i <= size - 1; ++i) Read(s, ptr, p_index[i]);
-    for(int i = 1; i <= size - 1; ++i) Read(s, ptr, p_value[i]);
     for(int i = 1; i <= size; ++i) Read(s, ptr, chd_id[i]);
   }
   else{
@@ -219,7 +216,6 @@ BPT::page::page(int node_id_, char *node_s, BPT *bpt_){
     p_value = new T2[bpt->M + 5]();
     chd_id = new int[bpt->M + 5]();
     for(int i = 1; i <= size - 1; ++i) Read(s, ptr, p_index[i]);
-    for(int i = 1; i <= size - 1; ++i) Read(s, ptr, p_value[i]);
     for(int i = 1; i <= size; ++i) Read(s, ptr, chd_id[i]);
   }
   else{
@@ -242,7 +238,6 @@ BPT::page::~page(){
       memset(s, 0, 4096);
       Write(s, ptr, size);
       for(int i = 1; i <= size - 1; ++i) Write(s, ptr, p_index[i]);
-      for(int i = 1; i <= size - 1; ++i) Write(s, ptr, p_value[i]);
       for(int i = 1; i <= size; ++i) Write(s, ptr, chd_id[i]);
       if(where == 0){
         bpt->internal_file.open(bpt->internal_file_name, std::ios::in | std::ios::out | std::ios::binary);
@@ -281,10 +276,10 @@ BPT::ret_data BPT::Insert_(int now, const T1 &x_index, const T2 &x_value){
     int l = 0, r = cur.size;
     while(l < r){
       int mid = l + r + 1 >> 1;
-      if(mid == 0 || x_index > cur.p_index[mid] || (x_index == cur.p_index[mid] && x_value >= cur.p_value[mid])) l = mid;
+      if(mid == 0 || x_index >= cur.p_index[mid]) l = mid;
       else r = mid - 1;
     }
-    if(x_index == cur.p_index[l] && x_value == cur.p_value[l]){
+    if(x_index == cur.p_index[l]){
       cur.modified = false;
       return ret_data();
     }
@@ -314,13 +309,13 @@ BPT::ret_data BPT::Insert_(int now, const T1 &x_index, const T2 &x_value){
     }
     cur.size = s1;
     delete temp; 
-    return ret_data(true, new_splited.p_index[1], new_splited.p_value[1], node_count);
+    return ret_data(true, new_splited.p_index[1], node_count);
   }
   else {
     int l = 1, r = cur.size;
     while(l < r){
       int mid = l + r + 1 >> 1;
-      if(mid == 1 || x_index > cur.p_index[mid - 1] || (x_index == cur.p_index[mid - 1] && x_value >= cur.p_value[mid - 1])) l = mid;
+      if(mid == 1 || x_index >= cur.p_index[mid - 1]) l = mid;
       else r = mid - 1;
     }
     int ins_loc = l;
@@ -328,10 +323,8 @@ BPT::ret_data BPT::Insert_(int now, const T1 &x_index, const T2 &x_value){
     if(res.splited == true){
       cur.modified = true;
       for(int i = cur.size; i > ins_loc; --i) cur.p_index[i] = cur.p_index[i - 1];
-      for(int i = cur.size; i > ins_loc; --i) cur.p_value[i] = cur.p_value[i - 1];
       for(int i = cur.size + 1; i > ins_loc + 1; --i) cur.chd_id[i] = cur.chd_id[i - 1];
       cur.p_index[ins_loc] = res.y_index;
-      cur.p_value[ins_loc] = res.y_value;
       cur.chd_id[ins_loc + 1] = res.new_node_id;
       if(is_leaf[res.new_node_id]){
         lb[res.new_node_id] = cur.chd_id[ins_loc];
@@ -350,20 +343,17 @@ BPT::ret_data BPT::Insert_(int now, const T1 &x_index, const T2 &x_value){
       char *temp = new char[4096]();
       Write(temp, ptr, s2 + 1);
       for(int i = 1; i <= s2; ++i) Write(temp, ptr, cur.p_index[s1 + 1 + i]);
-      for(int i = 1; i <= s2; ++i) Write(temp, ptr, cur.p_value[s1 + 1 + i]);
       for(int i = 1; i <= s2 + 1; ++i) Write(temp, ptr, cur.chd_id[s1 + 1 + i]);
       assert(ptr <= 4096);
       page new_splited(node_count, temp, this);
       T1 tmp_index = cur.p_index[s1 + 1];
-      T2 tmp_value = cur.p_value[s1 + 1];
       for(int i = s1 + 1; i <= cur.size - 1; ++i){
         cur.p_index[i] = T1();
-        cur.p_value[i] = T2();
       }
       for(int i = s1 + 2; i <= cur.size; ++i) cur.chd_id[i] = 0;
       cur.size = s1 + 1;
       delete temp; 
-      return ret_data(true, tmp_index, tmp_value, node_count);
+      return ret_data(true, tmp_index, node_count);
     }
     else return res;
   }
@@ -382,7 +372,6 @@ void BPT::Insert(const T1 &x_index, const T2 &x_value){
     char *temp = new char[4096]();
     Write(temp, ptr, 2);
     Write(temp, ptr, res.y_index);
-    Write(temp, ptr, res.y_value);
     Write(temp, ptr, root);
     Write(temp, ptr, res.new_node_id);
     assert(ptr <= 4096);
@@ -393,11 +382,11 @@ void BPT::Insert(const T1 &x_index, const T2 &x_value){
   return ;
 }
 
-bool BPT::Delete_(int now, const T1 &x_index, const T2 &x_value){
+bool BPT::Delete_(int now, const T1 &x_index){
   page cur(now, this);
   if(is_leaf[now]){
     for(int i = 1; i <= cur.size; ++i) 
-      if(cur.p_index[i] == x_index && cur.p_value[i] == x_value){
+      if(cur.p_index[i] == x_index){
         for(int j = i; j <= cur.size - 1; ++j) cur.p_index[j] = cur.p_index[j + 1];
         for(int j = i; j <= cur.size - 1; ++j) cur.p_value[j] = cur.p_value[j + 1];
         cur.size = cur.size - 1;
@@ -405,16 +394,16 @@ bool BPT::Delete_(int now, const T1 &x_index, const T2 &x_value){
         current_size = current_size - 1;
         break;
       } 
-      else if(cur.p_index[i] > x_index || (cur.p_index[i] == x_index && cur.p_value[i] > x_value)) break;
+      else if(cur.p_index[i] > x_index) break;
     if(cur.size >= L / 2) return false;
     else return true;
   }
   else {
     int del_loc = 1;
     for(int i = 1; i <= cur.size - 1; ++i)
-      if(x_index > cur.p_index[i] || (x_index == cur.p_index[i] && x_value >= cur.p_value[i])) del_loc = i + 1;
+      if(x_index >= cur.p_index[i]) del_loc = i + 1;
       else break;
-    bool to_merge = Delete_(cur.chd_id[del_loc], x_index, x_value);
+    bool to_merge = Delete_(cur.chd_id[del_loc], x_index);
     if(to_merge == false || cur.size == 1) return false;
     page mid(cur.chd_id[del_loc], this);
     int flag = true;
@@ -429,12 +418,9 @@ bool BPT::Delete_(int now, const T1 &x_index, const T2 &x_value){
           int s1 = left.size, s2 = mid.size;
           mid.size = 0, left.size = s1 + s2;
           left.p_index[s1] = cur.p_index[del_loc - 1];
-          left.p_value[s1] = cur.p_value[del_loc - 1];
           for(int i = 1; i <= s2 - 1; ++i){
             left.p_index[s1 + i] = mid.p_index[i];
-            left.p_value[s1 + i] = mid.p_value[i];
             mid.p_index[i] = T1();
-            mid.p_value[i] = T2();
           } 
           for(int i = 1; i <= s2; ++i){
             left.chd_id[s1 + i] = mid.chd_id[i];
@@ -442,7 +428,6 @@ bool BPT::Delete_(int now, const T1 &x_index, const T2 &x_value){
           }
           for(int i = del_loc - 1; i <= cur.size - 1; ++i){
             cur.p_index[i] = cur.p_index[i + 1];
-            cur.p_value[i] = cur.p_value[i + 1];
           }
           for(int i = del_loc; i <= cur.size; ++i) cur.chd_id[i] = cur.chd_id[i + 1];
           cur.size = cur.size - 1;
@@ -455,14 +440,11 @@ bool BPT::Delete_(int now, const T1 &x_index, const T2 &x_value){
           mid.size = mid.size + 1, left.size = left.size - 1;
           for(int i = s2; i >= 2; --i){
             mid.p_index[i] = mid.p_index[i - 1];
-            mid.p_value[i] = mid.p_value[i - 1];
           }
           for(int i = s2 + 1; i >= 2; --i) mid.chd_id[i] = mid.chd_id[i - 1];
           mid.p_index[1] = cur.p_index[del_loc - 1];
-          mid.p_value[1] = cur.p_value[del_loc - 1];
           mid.chd_id[1] = left.chd_id[s1];
           cur.p_index[del_loc - 1] = left.p_index[s1 - 1];
-          cur.p_value[del_loc - 1] = left.p_value[s1 - 1];
         }
       }
       else {
@@ -474,12 +456,9 @@ bool BPT::Delete_(int now, const T1 &x_index, const T2 &x_value){
           int s1 = mid.size, s2 = right.size;
           mid.size = s1 + s2, right.size = 0;
           mid.p_index[s1] = cur.p_index[del_loc];
-          mid.p_value[s1] = cur.p_value[del_loc];
           for(int i = 1; i <= s2 - 1; ++i){
             mid.p_index[s1 + i] = right.p_index[i];
-            mid.p_value[s1 + i] = right.p_value[i];
             right.p_index[i] = T1();
-            right.p_value[i] = T2();
           } 
           for(int i = 1; i <= s2; ++i){
             mid.chd_id[s1 + i] = right.chd_id[i];
@@ -487,7 +466,6 @@ bool BPT::Delete_(int now, const T1 &x_index, const T2 &x_value){
           }
           for(int i = del_loc; i <= cur.size - 1; ++i){
             cur.p_index[i] = cur.p_index[i + 1];
-            cur.p_value[i] = cur.p_value[i + 1];
           }
           for(int i = del_loc + 1; i <= cur.size; ++i) cur.chd_id[i] = cur.chd_id[i + 1];
           cur.size = cur.size - 1;
@@ -499,13 +477,10 @@ bool BPT::Delete_(int now, const T1 &x_index, const T2 &x_value){
           int s1 = right.size, s2 = mid.size;
           mid.size = mid.size + 1, right.size = right.size - 1;
           mid.p_index[s2] = cur.p_index[del_loc];
-          mid.p_value[s2] = cur.p_value[del_loc];
           mid.chd_id[s2 + 1] = right.chd_id[1];
           cur.p_index[del_loc] = right.p_index[1];
-          cur.p_value[del_loc] = right.p_value[1];
           for(int i = 1; i <= s1 - 2; ++i){
             right.p_index[i] = right.p_index[i + 1];
-            right.p_value[i] = right.p_value[i + 1];
           }
           for(int i = 1; i <= s1 - 1; ++i) right.chd_id[i] = right.chd_id[i + 1];
         }
@@ -530,7 +505,6 @@ bool BPT::Delete_(int now, const T1 &x_index, const T2 &x_value){
           } 
           for(int i = del_loc - 1; i <= cur.size - 1; ++i){
             cur.p_index[i] = cur.p_index[i + 1];
-            cur.p_value[i] = cur.p_value[i + 1];
           }
           for(int i = del_loc; i <= cur.size; ++i) cur.chd_id[i] = cur.chd_id[i + 1];
           cur.size = cur.size - 1;
@@ -548,7 +522,6 @@ bool BPT::Delete_(int now, const T1 &x_index, const T2 &x_value){
           mid.p_index[1] = left.p_index[s1];
           mid.p_value[1] = left.p_value[s1];
           cur.p_index[del_loc - 1] = mid.p_index[1];
-          cur.p_value[del_loc - 1] = mid.p_value[1];
         }
       }
       else {
@@ -569,7 +542,6 @@ bool BPT::Delete_(int now, const T1 &x_index, const T2 &x_value){
           } 
           for(int i = del_loc; i <= cur.size - 1; ++i){
             cur.p_index[i] = cur.p_index[i + 1];
-            cur.p_value[i] = cur.p_value[i + 1];
           }
           for(int i = del_loc + 1; i <= cur.size; ++i) cur.chd_id[i] = cur.chd_id[i + 1];
           cur.size = cur.size - 1;
@@ -583,7 +555,6 @@ bool BPT::Delete_(int now, const T1 &x_index, const T2 &x_value){
           mid.p_index[s2 + 1] = right.p_index[1];
           mid.p_value[s2 + 1] = right.p_value[1];
           cur.p_index[del_loc] = right.p_index[2];
-          cur.p_value[del_loc] = right.p_value[2];
           for(int i = 1; i <= s1 - 1; ++i){
             right.p_index[i] = right.p_index[i + 1];
             right.p_value[i] = right.p_value[i + 1];
@@ -598,14 +569,9 @@ bool BPT::Delete_(int now, const T1 &x_index, const T2 &x_value){
   return false;
 }
 
-void BPT::Delete(const T1 &x_index, const T2 &x_value){
+void BPT::Delete(const T1 &x_index){
   if(current_size == 0) return ;
-  Delete_(root, x_index, x_value);
-  // while(true){
-  //   page cur(root, this);
-  //   if(cur.size > 1 || is_leaf[cur.chd_id[1]]) break;
-  //   root = cur.chd_id[1];
-  // }
+  Delete_(root, x_index);
   return ;
 }
 
@@ -669,7 +635,7 @@ BPT::ret_data BPT::print(int now){
       if(i >= 2 && (p_index[i - 1] > tmp.y_index || (p_index[i - 1] == tmp.y_index && p_value[i - 1] > tmp.y_value))) assert(0);
       if(i <= size - 1 && (p_index[i + 1] < tmp.y_index || (p_index[i + 1] == tmp.y_index && p_value[i + 1] <= tmp.y_value))) assert(0);
     }
-    if(size >= 2) res = ret_data(true, p_index[1], p_value[1], 0);
+    if(size >= 2) res = ret_data(true, p_index[1], 0);
     delete[] p_index;
     delete[] p_value;
     delete[] chd_id;
@@ -689,18 +655,8 @@ void BPT::check_rb(){
   return ;
 }
 
-BPT::find_data::find_data(){
-  flag = false;
-}
-
-BPT::find_data::find_data(const T1 &y_index_, const T2 &y_value_){
-  y_index = y_index_;
-  y_value = y_value_;
-  flag = true;
-}
-
-BPT::find_data BPT::find(const T1 &x_index){
-  if(current_size == 0) return find_data(); 
+BPT::T2 BPT::find(const T1 &x_index){
+  if(current_size == 0) return T2(); 
   int now = root;
   while(!is_leaf[now]){
     page cur(now, this);
@@ -714,8 +670,12 @@ BPT::find_data BPT::find(const T1 &x_index){
   page cur(now, this);
   for(int i = 1; i <= cur.size; ++i)
     if(cur.p_index[i] == x_index) 
-      return find_data(cur.p_index[i], cur.p_value[i]); 
+      return cur.p_value[i]; 
     else if(cur.p_index[i] > x_index) 
       break;
-  return find_data();
+  return =T2();
+}
+
+bool BPT::is_scratch(){
+  return node_count == 0;
 }

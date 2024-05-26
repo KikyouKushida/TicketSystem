@@ -18,7 +18,7 @@ const bool Printing = false;
 template<class T1, class T2> //T1: type of index, T2: type of value, in memoryRiver, Char and int
 class BPT{
 private:
-  int M, L, MAX_N; // M fork BPT, in this problem = 56
+  int M, L, MAX_N; 
   int node_count, current_size, root;
   bool *is_leaf;
   int *loc;
@@ -45,18 +45,10 @@ private:
   struct ret_data{
     bool splited;
     T1 y_index;
-		T2 y_value;
     int new_node_id;
     ret_data();
     ret_data(const bool &splited_, const T1 &y_index_, const T2 &y_value_, const int &new_node_id_);
     ret_data(const ret_data &other);
-  };
-  struct find_data{
-    T1 y_index;
-    T2 y_value;
-    bool flag;
-    find_data();
-    find_data(const T1 &y_index_, const T2 &y_value_);
   };
   int in_cache(int node_id);
   void Write_back(char *s, int node_id);
@@ -73,12 +65,13 @@ private:
     ~page();
   };
   ret_data Insert_(int now, const T1 &x_index, const T2 &x_value);
+  bool Delete_(int now, const T1 &x_index);
 public:
   void Insert(const T1 &x_index, const T2 &x_value);
   void Find(const T1 &x_index);
-  bool Delete_(int now, const T1 &x_index, const T2 &x_value);
-  void Delete(const T1 &x_index, const T2 &x_value);
+  void Delete(const T1 &x_index);
 	ret_data print(int now);
 	void print();
 	void check_rb();
+  bool is_scratch();
 };

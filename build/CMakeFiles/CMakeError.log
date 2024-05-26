@@ -1,0 +1,1505 @@
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCCompilerId.o: Invalid argument
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -Aa 
+
+The output was:
+1
+<command-line>: error: missing '(' after predicate
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -D__CLASSIC_C__ 
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+gcc.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+gcc.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCCompilerId.o: Invalid argument
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCCompilerId.o: Invalid argument
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -Aa 
+
+The output was:
+1
+<command-line>: error: missing '(' after predicate
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -D__CLASSIC_C__ 
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+gcc.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+gcc.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCCompilerId.o: Invalid argument
+
+
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+gcc.exe: fatal error: no input files
+compilation terminated.
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+gcc.exe: fatal error: no input files
+compilation terminated.
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCXXCompilerId.o: Invalid argument
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --c++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '--c++'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --ec++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '--ec++'; did you mean '-Weffc++'?
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+g++.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+g++.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCXXCompilerId.o: Invalid argument
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCXXCompilerId.o: Invalid argument
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --c++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '--c++'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --ec++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '--ec++'; did you mean '-Weffc++'?
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+g++.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+g++.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCXXCompilerId.o: Invalid argument
+
+
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+g++.exe: fatal error: no input files
+compilation terminated.
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+g++.exe: fatal error: no input files
+compilation terminated.
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: /home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ab9bd/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ab9bd.dir/build.make CMakeFiles/cmTC_ab9bd.dir/build
+gmake[1]: Entering directory '/home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ab9bd.dir/CMakeCCompilerABI.c.o
+/mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe    -o CMakeFiles/cmTC_ab9bd.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c
+Assembler messages:
+Fatal error: can't create CMakeFiles/cmTC_ab9bd.dir/CMakeCCompilerABI.c.o: Invalid argument
+gmake[1]: *** [CMakeFiles/cmTC_ab9bd.dir/build.make:78: CMakeFiles/cmTC_ab9bd.dir/CMakeCCompilerABI.c.o] Error 1
+gmake[1]: Leaving directory '/home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_ab9bd/fast] Error 2
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: /home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c8dcc/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c8dcc.dir/build.make CMakeFiles/cmTC_c8dcc.dir/build
+gmake[1]: Entering directory '/home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c8dcc.dir/testCCompiler.c.o
+/mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe    -o CMakeFiles/cmTC_c8dcc.dir/testCCompiler.c.o -c /home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Assembler messages:
+Fatal error: can't create CMakeFiles/cmTC_c8dcc.dir/testCCompiler.c.o: Invalid argument
+gmake[1]: *** [CMakeFiles/cmTC_c8dcc.dir/build.make:78: CMakeFiles/cmTC_c8dcc.dir/testCCompiler.c.o] Error 1
+gmake[1]: Leaving directory '/home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_c8dcc/fast] Error 2
+
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCCompilerId.o: Invalid argument
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -Aa 
+
+The output was:
+1
+<command-line>: error: missing '(' after predicate
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -D__CLASSIC_C__ 
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+gcc.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+gcc.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCCompilerId.o: Invalid argument
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCCompilerId.o: Invalid argument
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -Aa 
+
+The output was:
+1
+<command-line>: error: missing '(' after predicate
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -D__CLASSIC_C__ 
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+gcc.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+gcc.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCCompilerId.o: Invalid argument
+
+
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+gcc.exe: fatal error: no input files
+compilation terminated.
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+gcc.exe: fatal error: no input files
+compilation terminated.
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCXXCompilerId.o: Invalid argument
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --c++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '--c++'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --ec++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '--ec++'; did you mean '-Weffc++'?
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+g++.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+g++.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCXXCompilerId.o: Invalid argument
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCXXCompilerId.o: Invalid argument
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --c++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '--c++'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --ec++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '--ec++'; did you mean '-Weffc++'?
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+g++.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+g++.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCXXCompilerId.o: Invalid argument
+
+
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+g++.exe: fatal error: no input files
+compilation terminated.
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+g++.exe: fatal error: no input files
+compilation terminated.
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: /home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1a14b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1a14b.dir/build.make CMakeFiles/cmTC_1a14b.dir/build
+gmake[1]: Entering directory '/home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1a14b.dir/CMakeCCompilerABI.c.o
+/mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe    -o CMakeFiles/cmTC_1a14b.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c
+Assembler messages:
+Fatal error: can't create CMakeFiles/cmTC_1a14b.dir/CMakeCCompilerABI.c.o: Invalid argument
+gmake[1]: *** [CMakeFiles/cmTC_1a14b.dir/build.make:78: CMakeFiles/cmTC_1a14b.dir/CMakeCCompilerABI.c.o] Error 1
+gmake[1]: Leaving directory '/home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_1a14b/fast] Error 2
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: /home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_40759/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_40759.dir/build.make CMakeFiles/cmTC_40759.dir/build
+gmake[1]: Entering directory '/home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_40759.dir/testCCompiler.c.o
+/mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe    -o CMakeFiles/cmTC_40759.dir/testCCompiler.c.o -c /home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Assembler messages:
+Fatal error: can't create CMakeFiles/cmTC_40759.dir/testCCompiler.c.o: Invalid argument
+gmake[1]: *** [CMakeFiles/cmTC_40759.dir/build.make:78: CMakeFiles/cmTC_40759.dir/testCCompiler.c.o] Error 1
+gmake[1]: Leaving directory '/home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_40759/fast] Error 2
+
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCCompilerId.o: Invalid argument
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -Aa 
+
+The output was:
+1
+<command-line>: error: missing '(' after predicate
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -D__CLASSIC_C__ 
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+gcc.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+gcc.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCCompilerId.o: Invalid argument
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCCompilerId.o: Invalid argument
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -Aa 
+
+The output was:
+1
+<command-line>: error: missing '(' after predicate
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -D__CLASSIC_C__ 
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+gcc.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+gcc.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCCompilerId.o: Invalid argument
+
+
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+gcc.exe: fatal error: no input files
+compilation terminated.
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+gcc.exe: fatal error: no input files
+compilation terminated.
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCXXCompilerId.o: Invalid argument
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --c++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '--c++'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --ec++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '--ec++'; did you mean '-Weffc++'?
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+g++.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+g++.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCXXCompilerId.o: Invalid argument
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCXXCompilerId.o: Invalid argument
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --c++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '--c++'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --ec++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '--ec++'; did you mean '-Weffc++'?
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+g++.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+g++.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCXXCompilerId.o: Invalid argument
+
+
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+g++.exe: fatal error: no input files
+compilation terminated.
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+g++.exe: fatal error: no input files
+compilation terminated.
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: /home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5016a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5016a.dir/build.make CMakeFiles/cmTC_5016a.dir/build
+gmake[1]: Entering directory '/home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5016a.dir/CMakeCCompilerABI.c.o
+/mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe    -o CMakeFiles/cmTC_5016a.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c
+Assembler messages:
+Fatal error: can't create CMakeFiles/cmTC_5016a.dir/CMakeCCompilerABI.c.o: Invalid argument
+gmake[1]: *** [CMakeFiles/cmTC_5016a.dir/build.make:78: CMakeFiles/cmTC_5016a.dir/CMakeCCompilerABI.c.o] Error 1
+gmake[1]: Leaving directory '/home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_5016a/fast] Error 2
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: /home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ef7f6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ef7f6.dir/build.make CMakeFiles/cmTC_ef7f6.dir/build
+gmake[1]: Entering directory '/home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ef7f6.dir/testCCompiler.c.o
+/mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe    -o CMakeFiles/cmTC_ef7f6.dir/testCCompiler.c.o -c /home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Assembler messages:
+Fatal error: can't create CMakeFiles/cmTC_ef7f6.dir/testCCompiler.c.o: Invalid argument
+gmake[1]: *** [CMakeFiles/cmTC_ef7f6.dir/build.make:78: CMakeFiles/cmTC_ef7f6.dir/testCCompiler.c.o] Error 1
+gmake[1]: Leaving directory '/home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_ef7f6/fast] Error 2
+
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCCompilerId.o: Invalid argument
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -Aa 
+
+The output was:
+1
+<command-line>: error: missing '(' after predicate
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -D__CLASSIC_C__ 
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+gcc.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+gcc.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCCompilerId.o: Invalid argument
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCCompilerId.o: Invalid argument
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -Aa 
+
+The output was:
+1
+<command-line>: error: missing '(' after predicate
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -D__CLASSIC_C__ 
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+gcc.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+gcc.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCCompilerId.o: Invalid argument
+
+
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+gcc.exe: fatal error: no input files
+compilation terminated.
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+gcc.exe: fatal error: no input files
+compilation terminated.
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCXXCompilerId.o: Invalid argument
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --c++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '--c++'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --ec++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '--ec++'; did you mean '-Weffc++'?
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+g++.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+g++.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCXXCompilerId.o: Invalid argument
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCXXCompilerId.o: Invalid argument
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --c++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '--c++'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --ec++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '--ec++'; did you mean '-Weffc++'?
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+g++.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+g++.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCXXCompilerId.o: Invalid argument
+
+
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+g++.exe: fatal error: no input files
+compilation terminated.
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+g++.exe: fatal error: no input files
+compilation terminated.
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: /home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_0e6ae/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0e6ae.dir/build.make CMakeFiles/cmTC_0e6ae.dir/build
+gmake[1]: Entering directory '/home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0e6ae.dir/CMakeCCompilerABI.c.o
+/mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe    -o CMakeFiles/cmTC_0e6ae.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c
+Assembler messages:
+Fatal error: can't create CMakeFiles/cmTC_0e6ae.dir/CMakeCCompilerABI.c.o: Invalid argument
+gmake[1]: *** [CMakeFiles/cmTC_0e6ae.dir/build.make:78: CMakeFiles/cmTC_0e6ae.dir/CMakeCCompilerABI.c.o] Error 1
+gmake[1]: Leaving directory '/home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_0e6ae/fast] Error 2
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: /home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e6bb8/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e6bb8.dir/build.make CMakeFiles/cmTC_e6bb8.dir/build
+gmake[1]: Entering directory '/home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e6bb8.dir/testCCompiler.c.o
+/mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe    -o CMakeFiles/cmTC_e6bb8.dir/testCCompiler.c.o -c /home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Assembler messages:
+Fatal error: can't create CMakeFiles/cmTC_e6bb8.dir/testCCompiler.c.o: Invalid argument
+gmake[1]: *** [CMakeFiles/cmTC_e6bb8.dir/build.make:78: CMakeFiles/cmTC_e6bb8.dir/testCCompiler.c.o] Error 1
+gmake[1]: Leaving directory '/home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_e6bb8/fast] Error 2
+
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCCompilerId.o: Invalid argument
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -Aa 
+
+The output was:
+1
+<command-line>: error: missing '(' after predicate
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -D__CLASSIC_C__ 
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+gcc.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+gcc.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCCompilerId.o: Invalid argument
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCCompilerId.o: Invalid argument
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -Aa 
+
+The output was:
+1
+<command-line>: error: missing '(' after predicate
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -D__CLASSIC_C__ 
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+gcc.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+gcc.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe 
+Build flags: 
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCCompilerId.o: Invalid argument
+
+
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+gcc.exe: fatal error: no input files
+compilation terminated.
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+gcc.exe: fatal error: no input files
+compilation terminated.
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCXXCompilerId.o: Invalid argument
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --c++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '--c++'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --ec++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '--ec++'; did you mean '-Weffc++'?
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+g++.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+g++.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCXXCompilerId.o: Invalid argument
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+C:/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/../lib/gcc/i686-w64-mingw32/13.2.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot open output file a.exe: Invalid argument
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCXXCompilerId.o: Invalid argument
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --c++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '--c++'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --ec++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '--ec++'; did you mean '-Weffc++'?
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+g++.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+g++.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/g++.exe 
+Build flags: 
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+Assembler messages:
+Fatal error: can't create CMakeCXXCompilerId.o: Invalid argument
+
+
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+g++.exe: fatal error: no input files
+compilation terminated.
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+g++.exe: fatal error: no input files
+compilation terminated.
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: /home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_bfa14/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_bfa14.dir/build.make CMakeFiles/cmTC_bfa14.dir/build
+gmake[1]: Entering directory '/home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bfa14.dir/CMakeCCompilerABI.c.o
+/mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe    -o CMakeFiles/cmTC_bfa14.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c
+Assembler messages:
+Fatal error: can't create CMakeFiles/cmTC_bfa14.dir/CMakeCCompilerABI.c.o: Invalid argument
+gmake[1]: *** [CMakeFiles/cmTC_bfa14.dir/build.make:78: CMakeFiles/cmTC_bfa14.dir/CMakeCCompilerABI.c.o] Error 1
+gmake[1]: Leaving directory '/home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_bfa14/fast] Error 2
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: /home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c5450/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c5450.dir/build.make CMakeFiles/cmTC_c5450.dir/build
+gmake[1]: Entering directory '/home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c5450.dir/testCCompiler.c.o
+/mnt/c/Users/Remosk/Downloads/mingw-w64-gcc-13.2-stable-r40/bin/gcc.exe    -o CMakeFiles/cmTC_c5450.dir/testCCompiler.c.o -c /home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Assembler messages:
+Fatal error: can't create CMakeFiles/cmTC_c5450.dir/testCCompiler.c.o: Invalid argument
+gmake[1]: *** [CMakeFiles/cmTC_c5450.dir/build.make:78: CMakeFiles/cmTC_c5450.dir/testCCompiler.c.o] Error 1
+gmake[1]: Leaving directory '/home/remosk/TicketSystem/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_c5450/fast] Error 2
+
+
+
