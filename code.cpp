@@ -148,7 +148,8 @@ void exit(){
 //#include <unistd.h>
 
 int main(){
-  //freopen("../1.in", "r", stdin);
+  freopen("../1.in", "r", stdin);
+  freopen("../1.out", "w", stdout);
   std::string time_str, oper_str;
   int time;
   while(true){

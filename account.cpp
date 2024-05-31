@@ -110,13 +110,13 @@ void account_system::Login(const Char &cur_username, const Char &cur_password){
 
 int account_system::login(const Char &cur_username, const Char &cur_password){
   if(have_logined(cur_username) == true || have_added(cur_username) == false){
-    std::cout << "error 1\n";
+    //std::cout << "error 1\n";
     return -1;
   }
   value_type cur_loc = added->find(index_type(cur_username.my_hash()));
   account_data cur_data(this, cur_loc.loc);
   if(cur_password != *(cur_data.password)){
-    std::cout << "error 2\n";
+    //std::cout << "error 2\n";
     return -1;
   }
   logined->Insert(index_type(cur_username.my_hash()), value_type(cur_loc.loc));
