@@ -4,9 +4,9 @@ template<class T1, class T2>
 void BPT<T1, T2>::construct_from_empty(){
   internal_file.open(internal_file_name, std::ios::out | std::ios::binary);
   leaf_file.open(leaf_file_name, std::ios::out | std::ios::binary);
+  ext_file.open(ext_file_name, std::ios::out | std::ios::binary);
   internal_file.close();
   leaf_file.close();
-  ext_file.open(ext_file_name, std::ios::out | std::ios::binary);
   ext_file.close();
   node_count = 0;
   current_size = 0;
@@ -35,7 +35,57 @@ void BPT<T1, T2>::construct_from_empty(){
   ptr = 0;
   Write(temp, ptr, 0);
   page one_leaf_node(node_count, temp, this);
-  delete temp;
+  delete[] temp;
+  return ;
+}
+
+template<class T1, class T2>
+void BPT<T1, T2>::clear(){
+  for(int i = 1; i <= MAX_cache; ++i) delete cache[i];
+  delete[] cache;
+  delete[] cache_id;
+  cache = new char*[MAX_cache + 5];
+  for(int i = 1; i <= MAX_cache; ++i) cache[i] = nullptr;
+  cache_id = new int[MAX_cache + 5];
+  for(int i = 1; i <= MAX_cache; ++i) cache_id[i] = 0;
+
+  internal_file.open(internal_file_name, std::ios::out | std::ios::binary);
+  leaf_file.open(leaf_file_name, std::ios::out | std::ios::binary);
+  ext_file.open(ext_file_name, std::ios::out | std::ios::binary);
+  internal_file.close();
+  leaf_file.close();
+  ext_file.close();
+  node_count = 0;
+  current_size = 0;
+  internal_loc = 0;
+  leaf_loc = 0;
+  delete[] loc;
+  delete[] is_leaf;
+  delete[] lb;
+  delete[] rb;
+  loc = new int[MAX_N + 5]();
+  is_leaf = new bool[MAX_N + 5]();
+  lb = new int[MAX_N + 5]();
+  rb = new int[MAX_N + 5]();
+  node_count = node_count + 1;
+  root = node_count;
+  is_leaf[node_count] = false;
+  loc[node_count] = internal_loc; 
+  internal_loc = internal_loc + 4096;
+  char *temp = new char[4096]();
+  int ptr = 0;
+  Write(temp, ptr, 1);
+  Write(temp, ptr, node_count + 1);
+  page one_internal_node(node_count, temp, this);
+  node_count = node_count + 1;
+  is_leaf[node_count] = true;
+  loc[node_count] = leaf_loc;
+  leaf_loc = leaf_loc + 4096;
+  memset(temp, 0, 4096);
+  ptr = 0;
+  Write(temp, ptr, 0);
+  page one_leaf_node(node_count, temp, this);
+  delete[] temp;
   return ;
 }
 
@@ -90,7 +140,7 @@ BPT<T1, T2>::~BPT(){
   for(int i = 1; i <= MAX_cache; ++i) 
     if(cache[i] != nullptr){
       Write_back(cache[i], cache_id[i]);
-      delete[] cache[i];
+      delete cache[i];
     }
   delete[] cache;
   delete[] cache_id;
@@ -174,6 +224,7 @@ BPT<T1, T2>::page::page(int node_id_, BPT *bpt_): bpt(bpt_), node_id(node_id_){
     int ptr = 0;
     Read(s, ptr, size);
     p_index = new T1[bpt->M + 5]();
+    p_value = nullptr;
     chd_id = new int[bpt->M + 5]();
     for(int i = 1; i <= size - 1; ++i) p_index[i].Read(s, ptr);
     for(int i = 1; i <= size; ++i) Read(s, ptr, chd_id[i]);
@@ -212,7 +263,7 @@ BPT<T1, T2>::page::page(int node_id_, char *node_s, BPT *bpt_){
     int ptr = 0;
     Read(s, ptr, size);
     p_index = new T1[bpt->M + 5]();
-    p_value = new T2[bpt->M + 5]();
+    p_value = nullptr;
     chd_id = new int[bpt->M + 5]();
     for(int i = 1; i <= size - 1; ++i) p_index[i].Read(s, ptr);
     for(int i = 1; i <= size; ++i) Read(s, ptr, chd_id[i]);
@@ -265,8 +316,10 @@ BPT<T1, T2>::page::~page(){
   }
   delete[] s;
   delete[] p_index;
-  delete[] p_value;
-  delete[] chd_id;
+  if(p_value == nullptr);
+  else delete[] p_value;
+  if(chd_id == nullptr);
+  else delete[] chd_id;
 }
 
 template<class T1, class T2>
@@ -280,7 +333,7 @@ typename BPT<T1, T2>::ret_data BPT<T1, T2>::Insert_(int now, const T1 &x_index, 
       if(mid == 0 || x_index >= cur.p_index[mid]) l = mid;
       else r = mid - 1;
     }
-    if(x_index == cur.p_index[l]){
+    if(l > 0 && x_index == cur.p_index[l]){
       cur.modified = false;
       return ret_data();
     }
@@ -309,7 +362,7 @@ typename BPT<T1, T2>::ret_data BPT<T1, T2>::Insert_(int now, const T1 &x_index, 
       cur.p_value[s1 + i] = T2();
     }
     cur.size = s1;
-    delete temp; 
+    delete[] temp; 
     return ret_data(true, new_splited.p_index[1], node_count);
   }
   else {
@@ -353,7 +406,7 @@ typename BPT<T1, T2>::ret_data BPT<T1, T2>::Insert_(int now, const T1 &x_index, 
       }
       for(int i = s1 + 2; i <= cur.size; ++i) cur.chd_id[i] = 0;
       cur.size = s1 + 1;
-      delete temp; 
+      delete[] temp; 
       return ret_data(true, tmp_index, node_count);
     }
     else return res;
@@ -379,7 +432,7 @@ void BPT<T1, T2>::Insert(const T1 &x_index, const T2 &x_value){
     assert(ptr <= 4096);
     root = node_count;
     page new_splited(node_count, temp, this);
-    delete temp;
+    delete[] temp;
   }
   return ;
 }
@@ -670,7 +723,7 @@ T2 BPT<T1, T2>::find(const T1 &x_index){
     page cur(now, this);
     int leng = cur.size; int find_loc = 1;
     for(int i = 1; i <= leng - 1; ++i) 
-      if(x_index > cur.p_index[i]) find_loc = i + 1;
+      if(x_index >= cur.p_index[i]) find_loc = i + 1;
       else break;
     now = cur.chd_id[find_loc];
   }

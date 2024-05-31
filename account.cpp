@@ -28,15 +28,13 @@ account_system::~account_system(){
 
 bool account_system::have_logined(const Char &this_username){
   value_type tmp_loc = logined->find(index_type(this_username.my_hash()));
-  account_data tmp_data(this, tmp_loc.loc);
-  if(tmp_data.privilege == -1) return false;
-  else return true;
+  if(tmp_loc.loc == -1) return false;
+  return true;
 }
 
 bool account_system::have_added(const Char &this_username){
   value_type tmp_loc = added->find(index_type(this_username.my_hash()));
-  account_data tmp_data(this, tmp_loc.loc);
-  if(tmp_data.privilege == -1) return false;
+  if(tmp_loc.loc == -1) return false;
   return true;
 }
 
@@ -111,10 +109,16 @@ void account_system::Login(const Char &cur_username, const Char &cur_password){
 }
 
 int account_system::login(const Char &cur_username, const Char &cur_password){
-  if(have_logined(cur_username) == true || have_added(cur_username) == false) return -1;
+  if(have_logined(cur_username) == true || have_added(cur_username) == false){
+    std::cout << "error 1\n";
+    return -1;
+  }
   value_type cur_loc = added->find(index_type(cur_username.my_hash()));
   account_data cur_data(this, cur_loc.loc);
-  if(cur_password != *(cur_data.password)) return -1;
+  if(cur_password != *(cur_data.password)){
+    std::cout << "error 2\n";
+    return -1;
+  }
   logined->Insert(index_type(cur_username.my_hash()), value_type(cur_loc.loc));
   return 0;
 }
@@ -179,6 +183,11 @@ int account_system::modify_profile(const Char &cur_username, const Char &x_usern
   }
   assert(0);
   return 0;
+}
+
+void account_system::Clear_logined(){
+  logined->clear();
+  return ;
 }
 
 

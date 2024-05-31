@@ -77,6 +77,7 @@ public:
 	void print();
 	void check_rb();
   bool is_scratch();
+  void clear();
 };
 
 #include "BPT.cpp"

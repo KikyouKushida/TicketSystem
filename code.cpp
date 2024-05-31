@@ -23,18 +23,142 @@ T str_to_num(const std::string &str){
 }
 
 int to_time(const std::string &time_str){
-  return str_to_num(time_str.substr(1, time_str.size() - 2));
+  return str_to_num<int>(time_str.substr(1, time_str.size() - 2));
+}
+
+account_system Account_system(320, 320, 10000, 400);
+
+char S[100005];
+
+void read_line(sjtu::vector<std::string> &input){
+  std::cin.getline(S, 100000);
+  int len = strlen(S);
+  assert(len < 100000);
+  input.clear(); 
+  for(int i = 0, j; i < len; i = j + 1){
+    j = i;
+    if(S[i] == ' ' || S[i] == '\n') continue;
+    std::string tmp;
+    while(j + 1 < len && S[j + 1] != ' ' && S[j + 1] != '\n') ++j;
+    for(int o = i; o <= j; ++o) tmp += S[o];
+    input.push_back(tmp);
+  }
+  return ;
+}
+
+void add_user(){
+  sjtu::vector<std::string> input;
+  read_line(input);
+  Char *username, *name, *cur_username, *password, *mailAddr;
+  int privilege;
+  for(int i = 0; i < input.size(); i += 2){
+    if(input[i] == "-c") cur_username = new Char(input[i + 1], 20);
+    else if(input[i] == "-u") username = new Char(input[i + 1], 20);
+    else if(input[i] == "-g") privilege = str_to_num<int>(input[i + 1]);
+    else if(input[i] == "-p") password = new Char(input[i + 1], 30);
+    else if(input[i] == "-m") mailAddr = new Char(input[i + 1], 30);
+    else if(input[i] == "-n") name = new Char(input[i + 1], 15);
+    else assert(0);
+  }
+  Account_system.Add_user(*cur_username, *username, *password, *name, *mailAddr, privilege);
+  delete username;
+  delete name;
+  delete mailAddr;
+  delete password;
+  delete cur_username;
+  return ;
+}
+
+void login(){
+  sjtu::vector<std::string> input;
+  read_line(input);
+  Char *username, *password;
+  for(int i = 0; i < input.size(); i += 2){
+    if(input[i] == "-u") username = new Char(input[i + 1], 20);
+    else if(input[i] == "-p") password = new Char(input[i + 1], 30);
+    else assert(0);
+  } 
+  Account_system.Login(*username, *password);
+  std::cout << *username << " " << *password << "\n";
+  delete username;
+  delete password;
+  return ;
+}
+
+void logout(){
+  sjtu::vector<std::string> input;
+  read_line(input);
+  Char *username;
+  for(int i = 0; i < input.size(); i += 2){
+    if(input[i] == "-u") username = new Char(input[i + 1], 20);
+    else assert(0);
+  }
+  Account_system.Logout(*username);
+  delete username;
+  return ;
+}
+
+void query_profile(){
+  sjtu::vector<std::string> input;
+  read_line(input);
+  Char *username, *cur_username;
+  for(int i = 0; i < input.size(); i += 2){
+    if(input[i] == "-c") cur_username = new Char(input[i + 1], 20);
+    else if(input[i] == "-u") username = new Char(input[i + 1], 20);
+    else assert(0);
+  }
+  Account_system.Query_profile(*cur_username, *username);
+  delete cur_username;
+  delete username;
+  return ;
+}
+
+void modify_profile(){
+  sjtu::vector<std::string> input;
+  read_line(input);
+  Char *username, *name, *cur_username, *password, *mailAddr;
+  int privilege = -1;
+  for(int i = 0; i < input.size(); i += 2){
+    if(input[i] == "-c") cur_username = new Char(input[i + 1], 20);
+    else if(input[i] == "-u") username = new Char(input[i + 1], 20);
+    else if(input[i] == "-g") privilege = str_to_num<int>(input[i + 1]);
+    else if(input[i] == "-p") password = new Char(input[i + 1], 30);
+    else if(input[i] == "-m") mailAddr = new Char(input[i + 1], 30);
+    else if(input[i] == "-n") name = new Char(input[i + 1], 15);
+    else assert(0);
+  }
+  if(password == nullptr) password = new Char(30);
+  if(name == nullptr) name = new Char(15);
+  if(mailAddr == nullptr) mailAddr = new Char(30);
+  assert(username != nullptr && cur_username != nullptr);
+  Account_system.Modify_profile(*cur_username, *username, *password, *name, *mailAddr, privilege);
+  delete username;
+  delete name;
+  delete mailAddr;
+  delete password;
+  delete cur_username;
+  return ;
+}
+
+void exit(){
+  Account_system.Clear_logined();
+  std::cout << "bye\n";
+  return ;
 }
 
 int main(){
-  account_system Account_system(320, 320, 10000, 400);
   std::string time_str, oper_str;
   int time;
   while(true){
     std::cin >> time_str;
     time = to_time(time_str);
     std::cin >> oper_str;
-    if(oper_str == "")
+    if(oper_str == "add_user") add_user();
+    else if(oper_str == "login") login();
+    else if(oper_str == "logout") logout();
+    else if(oper_str == "query_profile") query_profile();
+    else if(oper_str == "modify_profile") modify_profile();
+    else if(oper_str == "exit"){ exit();break; }
   }
   return 0;
 }

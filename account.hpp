@@ -43,6 +43,10 @@ private:
     friend bool operator>=(const index_type &x, const index_type &y){
       return x.username >= y.username;
     }
+    friend std::ostream& operator << (std::ostream &os, const index_type &y){
+      os << y.username;
+      return os;
+    } 
     void Write(char *s, int &loc){
       s[loc] = static_cast<unsigned char>((username >> 56) & 0xFF);
       s[loc + 1] = static_cast<unsigned char>((username >> 48) & 0xFF);
@@ -72,22 +76,26 @@ private:
     int loc;
     value_type(): loc(-1){}
     value_type(const int &loc_): loc(loc_){}
-    void Write(char *s, int &loc){
-      s[loc] = static_cast<unsigned char>((loc >> 24) & 0xFF);
-      s[loc + 1] = static_cast<unsigned char>((loc >> 16) & 0xFF);
-      s[loc + 2] = static_cast<unsigned char>((loc >> 8) & 0xFF);
-      s[loc + 3] = static_cast<unsigned char>(loc & 0xFF);
-      loc = loc + 4;
+    void Write(char *s, int &loc_){
+      s[loc_] = static_cast<unsigned char>((loc >> 24) & 0xFF);
+      s[loc_ + 1] = static_cast<unsigned char>((loc >> 16) & 0xFF);
+      s[loc_ + 2] = static_cast<unsigned char>((loc >> 8) & 0xFF);
+      s[loc_ + 3] = static_cast<unsigned char>(loc & 0xFF);
+      loc_ = loc_ + 4;
       return ;
     }
-    void Read(char *s, int &loc){
-      loc = (static_cast<unsigned char>(s[loc]) << 24) |
-          (static_cast<unsigned char>(s[loc + 1]) << 16) |
-          (static_cast<unsigned char>(s[loc + 2]) << 8) |
-          (static_cast<unsigned char>(s[loc + 3]) << 0);
-      loc = loc + 4;
+    void Read(char *s, int &loc_){
+      loc = (static_cast<unsigned char>(s[loc_]) << 24) |
+          (static_cast<unsigned char>(s[loc_ + 1]) << 16) |
+          (static_cast<unsigned char>(s[loc_ + 2]) << 8) |
+          (static_cast<unsigned char>(s[loc_ + 3]) << 0);
+      loc_ = loc_ + 4;
       return ;
     }
+    friend std::ostream& operator << (std::ostream &os, const value_type &y){
+      os << y.loc;
+      return os;
+    } 
   };
   struct account_data{
     Char *username, *password, *name, *mailAddr;
@@ -128,6 +136,7 @@ public:
   void Logout(const Char &x_username);
   void Query_profile(const Char &cur_username, const Char &x_username);
   void Modify_profile(const Char &cur_username, const Char &x_username, const Char &x_password, const Char &x_name, const Char &x_mailAddr, const int &x_privilege);
+  void Clear_logined();
 };
 
 #endif

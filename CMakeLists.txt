@@ -1,3 +1,7 @@
+add_compile_options("-fsanitize=address,undefined")
+
+add_link_options("-fsanitize=address,undefined")
+
 cmake_minimum_required(VERSION 3.0)  # 你所需的 CMake 版本
 
 project(code)  # 你的项目名称

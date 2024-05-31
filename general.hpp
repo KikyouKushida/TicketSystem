@@ -33,8 +33,8 @@ public:
   int len, max_size;
 public:
   Char(std::fstream &this_file, const int &max_size_){
-    s = new char[max_size]();
     max_size = max_size_;
+    s = new char[max_size]();
     this_file.read(s, max_size);
     len = strlen(s);
   }
@@ -42,6 +42,7 @@ public:
     this_file.write(s, max_size);
   }
   Char(const int &max_size_){
+    max_size = max_size_;
     s = new char[max_size]();
     len = 0;
     max_size = max_size_;
