@@ -112,7 +112,7 @@ private:
       bel->ordered_user_file.close();
     }
     void show(){
-      std::cout << username << " " << name << " " << mailAddr << " " << privilege << "\n";
+      std::cout << *username << " " << *name << " " << *mailAddr << " " << privilege << "\n";
       return ;
     }
   };

@@ -79,7 +79,6 @@ void login(){
     else assert(0);
   } 
   Account_system.Login(*username, *password);
-  std::cout << *username << " " << *password << "\n";
   delete username;
   delete password;
   return ;
