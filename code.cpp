@@ -26,7 +26,7 @@ int to_time(const std::string &time_str){
   return str_to_num<int>(time_str.substr(1, time_str.size() - 2));
 }
 
-account_system Account_system(320, 320, 10000, 400);
+account_system Account_system(300, 300, 10000, 400);
 
 char S[100005];
 
@@ -52,12 +52,12 @@ void add_user(){
   Char *username, *name, *cur_username, *password, *mailAddr;
   int privilege;
   for(int i = 0; i < input.size(); i += 2){
-    if(input[i] == "-c") cur_username = new Char(input[i + 1], 20);
-    else if(input[i] == "-u") username = new Char(input[i + 1], 20);
+    if(input[i] == "-c") cur_username = new Char(input[i + 1], 21);
+    else if(input[i] == "-u") username = new Char(input[i + 1], 21);
     else if(input[i] == "-g") privilege = str_to_num<int>(input[i + 1]);
-    else if(input[i] == "-p") password = new Char(input[i + 1], 30);
-    else if(input[i] == "-m") mailAddr = new Char(input[i + 1], 30);
-    else if(input[i] == "-n") name = new Char(input[i + 1], 15);
+    else if(input[i] == "-p") password = new Char(input[i + 1], 31);
+    else if(input[i] == "-m") mailAddr = new Char(input[i + 1], 31);
+    else if(input[i] == "-n") name = new Char(input[i + 1], 16);
     else assert(0);
   }
   Account_system.Add_user(*cur_username, *username, *password, *name, *mailAddr, privilege);
@@ -72,10 +72,10 @@ void add_user(){
 void login(){
   sjtu::vector<std::string> input;
   read_line(input);
-  Char *username, *password;
+  Char *username = nullptr, *password = nullptr;
   for(int i = 0; i < input.size(); i += 2){
-    if(input[i] == "-u") username = new Char(input[i + 1], 20);
-    else if(input[i] == "-p") password = new Char(input[i + 1], 30);
+    if(input[i] == "-u") username = new Char(input[i + 1], 21);
+    else if(input[i] == "-p") password = new Char(input[i + 1], 31);
     else assert(0);
   } 
   Account_system.Login(*username, *password);
@@ -87,9 +87,9 @@ void login(){
 void logout(){
   sjtu::vector<std::string> input;
   read_line(input);
-  Char *username;
+  Char *username = nullptr;
   for(int i = 0; i < input.size(); i += 2){
-    if(input[i] == "-u") username = new Char(input[i + 1], 20);
+    if(input[i] == "-u") username = new Char(input[i + 1], 21);
     else assert(0);
   }
   Account_system.Logout(*username);
@@ -100,10 +100,10 @@ void logout(){
 void query_profile(){
   sjtu::vector<std::string> input;
   read_line(input);
-  Char *username, *cur_username;
+  Char *username = nullptr, *cur_username = nullptr;
   for(int i = 0; i < input.size(); i += 2){
-    if(input[i] == "-c") cur_username = new Char(input[i + 1], 20);
-    else if(input[i] == "-u") username = new Char(input[i + 1], 20);
+    if(input[i] == "-c") cur_username = new Char(input[i + 1], 21);
+    else if(input[i] == "-u") username = new Char(input[i + 1], 21);
     else assert(0);
   }
   Account_system.Query_profile(*cur_username, *username);
@@ -115,15 +115,15 @@ void query_profile(){
 void modify_profile(){
   sjtu::vector<std::string> input;
   read_line(input);
-  Char *username, *name, *cur_username, *password, *mailAddr;
+  Char *username = nullptr, *name = nullptr, *cur_username = nullptr, *password = nullptr, *mailAddr = nullptr;
   int privilege = -1;
   for(int i = 0; i < input.size(); i += 2){
-    if(input[i] == "-c") cur_username = new Char(input[i + 1], 20);
-    else if(input[i] == "-u") username = new Char(input[i + 1], 20);
+    if(input[i] == "-c") cur_username = new Char(input[i + 1], 21);
+    else if(input[i] == "-u") username = new Char(input[i + 1], 21);
     else if(input[i] == "-g") privilege = str_to_num<int>(input[i + 1]);
-    else if(input[i] == "-p") password = new Char(input[i + 1], 30);
-    else if(input[i] == "-m") mailAddr = new Char(input[i + 1], 30);
-    else if(input[i] == "-n") name = new Char(input[i + 1], 15);
+    else if(input[i] == "-p") password = new Char(input[i + 1], 31);
+    else if(input[i] == "-m") mailAddr = new Char(input[i + 1], 31);
+    else if(input[i] == "-n") name = new Char(input[i + 1], 16);
     else assert(0);
   }
   if(password == nullptr) password = new Char(30);
@@ -145,19 +145,24 @@ void exit(){
   return ;
 }
 
+#include <unistd.h>
+
 int main(){
+  freopen("../1.in", "r", stdin);
   std::string time_str, oper_str;
   int time;
   while(true){
     std::cin >> time_str;
     time = to_time(time_str);
     std::cin >> oper_str;
+    std::cout << time_str << " ";
     if(oper_str == "add_user") add_user();
     else if(oper_str == "login") login();
     else if(oper_str == "logout") logout();
     else if(oper_str == "query_profile") query_profile();
     else if(oper_str == "modify_profile") modify_profile();
-    else if(oper_str == "exit"){ exit();break; }
+    else if(oper_str == "exit"){ exit(); break; }
+    sleep(0.2);
   }
   return 0;
 }

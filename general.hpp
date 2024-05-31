@@ -45,7 +45,6 @@ public:
     max_size = max_size_;
     s = new char[max_size]();
     len = 0;
-    max_size = max_size_;
   }
   Char(char *ss, const int &max_size_){
     max_size = max_size_;
@@ -74,7 +73,6 @@ public:
     max_size = other.max_size;
     s = new char[max_size]();
     len = other.len;
-    for(int i = 0; i < max_size; ++i) s[i] = 0;
     for(int i = 0; i < len; ++i) s[i] = other.s[i];
     return *this;
   }

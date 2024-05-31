@@ -104,16 +104,22 @@ private:
     account_data(account_system *bel, int loc){
       bel->ordered_user_file.open("ordered_user_data.txt", std::ios::in | std::ios::binary);
       bel->ordered_user_file.seekg(loc, std::ios::beg);
-      username = new Char(bel->ordered_user_file, 20);
-      password = new Char(bel->ordered_user_file, 30);
-      name = new Char(bel->ordered_user_file, 15);
-      mailAddr = new Char(bel->ordered_user_file, 30);
+      username = new Char(bel->ordered_user_file, 21);
+      password = new Char(bel->ordered_user_file, 31);
+      name = new Char(bel->ordered_user_file, 16);
+      mailAddr = new Char(bel->ordered_user_file, 31);
       bel->ordered_user_file.read(reinterpret_cast<char*>(&privilege), sizeof(int));
       bel->ordered_user_file.close();
     }
     void show(){
       std::cout << *username << " " << *name << " " << *mailAddr << " " << privilege << "\n";
       return ;
+    }
+    ~account_data(){
+      delete username;
+      delete password;
+      delete name;
+      delete mailAddr;
     }
   };
   std::fstream ordered_user_file, other_file;

@@ -41,14 +41,13 @@ void BPT<T1, T2>::construct_from_empty(){
 
 template<class T1, class T2>
 void BPT<T1, T2>::clear(){
-  for(int i = 1; i <= MAX_cache; ++i) delete cache[i];
+  for(int i = 1; i <= MAX_cache; ++i) delete[] cache[i];
   delete[] cache;
   delete[] cache_id;
   cache = new char*[MAX_cache + 5];
   for(int i = 1; i <= MAX_cache; ++i) cache[i] = nullptr;
   cache_id = new int[MAX_cache + 5];
   for(int i = 1; i <= MAX_cache; ++i) cache_id[i] = 0;
-
   internal_file.open(internal_file_name, std::ios::out | std::ios::binary);
   leaf_file.open(leaf_file_name, std::ios::out | std::ios::binary);
   ext_file.open(ext_file_name, std::ios::out | std::ios::binary);
@@ -140,7 +139,7 @@ BPT<T1, T2>::~BPT(){
   for(int i = 1; i <= MAX_cache; ++i) 
     if(cache[i] != nullptr){
       Write_back(cache[i], cache_id[i]);
-      delete cache[i];
+      delete[] cache[i];
     }
   delete[] cache;
   delete[] cache_id;
