@@ -145,10 +145,10 @@ void exit(){
   return ;
 }
 
-#include <unistd.h>
+//#include <unistd.h>
 
 int main(){
-  freopen("../1.in", "r", stdin);
+  //freopen("../1.in", "r", stdin);
   std::string time_str, oper_str;
   int time;
   while(true){
@@ -162,7 +162,7 @@ int main(){
     else if(oper_str == "query_profile") query_profile();
     else if(oper_str == "modify_profile") modify_profile();
     else if(oper_str == "exit"){ exit(); break; }
-    sleep(0.2);
+    //sleep(0.2);
   }
   return 0;
 }
