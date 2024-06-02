@@ -17,7 +17,6 @@
 
 #include "BPT.hpp"
 
-
 class account_system{
 private:
   struct index_type{
