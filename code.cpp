@@ -22,6 +22,19 @@ T str_to_num(const std::string &str){
   return res;
 }
 
+template<class T>
+sjtu::vector <T> numlist_to_num(const std::string &str, const int &required_length){
+  sjtu::vector <T> res;
+  for(int i = 0, j; i < str.size(); i = j + 1){
+    j = i;
+    if(str[i] == '|') continue;
+    while(j + 1 < str.size() && str[j + 1] != '|') ++j;
+    res.push_back(str_to_num<T>(str.substr(i, j - i + 1)));
+  }
+  assert(res.size() == required_length);
+  return res;
+}
+
 int to_time(const std::string &time_str){
   return str_to_num<int>(time_str.substr(1, time_str.size() - 2));
 }
