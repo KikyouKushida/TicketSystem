@@ -740,3 +740,31 @@ template<class T1, class T2>
 bool BPT<T1, T2>::is_scratch(){
   return node_count == 0;
 }
+
+template<class T1, class T2>
+sjtu::vector<T1> BPT<T1, T2>::find_with_first(const T1 &x_index){
+  sjtu::vector<T1> ans;
+  if(current_size == 0) return ans;
+  int now = root;
+  while(!is_leaf[now]){
+    page cur(now, this);
+    int leng = cur.size; int find_loc = 1;
+    for(int i = 1; i <= leng - 1; ++i) 
+      if(x_index.first > cur.p_index[i].first) find_loc = i + 1;
+      else break;
+    now = cur.chd_id[find_loc];
+  }
+  bool flag = true;
+  while(true){
+    page cur(now, this);
+    for(int i = 1; i <= cur.size; ++i)
+      if(cur.p_index[i].first == x_index.first) ans.push_back(cur.p_index[i]);
+      else if(cur.p_index[i].first > x_index.first){
+        flag = false;
+        break;
+      }
+    if(flag == false || rb[now] == 0) break;
+    now = rb[now];
+  }
+  return ans;
+}

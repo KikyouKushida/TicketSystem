@@ -3,27 +3,27 @@
 account_system::account_system(const int &M, const int &L, const int &MAX_N, const int &MAX_cache): length_per_user(103){
   logined = new BPT<index_type, value_type>(M, L, "account_logined_internal_data.txt", "account_logined_leaf_data.txt", "account_logined_ext_data.txt", MAX_N, MAX_cache);
   added = new BPT<index_type, value_type>(M, L, "account_added_internal_data.txt", "account_added_leaf_data.txt", "account_added_ext_data.txt", MAX_N, MAX_cache);
-  other_file.open("other_data.txt", std::ios::in | std::ios::binary);
-  if(!other_file){
-    other_file.close();
-    other_file.open("other_data.txt", std::ios::out | std::ios::binary);
-    other_file.close();
+  account_other_file.open("account_other_data.txt", std::ios::in | std::ios::binary);
+  if(!account_other_file){
+    account_other_file.close();
+    account_other_file.open("account_other_data.txt", std::ios::out | std::ios::binary);
+    account_other_file.close();
     user_count = 0;
     ordered_user_file.open("ordered_user_data.txt", std::ios::out | std::ios::binary);
     ordered_user_file.close();
   }
   else {
-    other_file.seekg(0, std::ios::beg);
-    other_file.read(reinterpret_cast<char *>(&user_count), sizeof(int));
-    other_file.close();
+    account_other_file.seekg(0, std::ios::beg);
+    account_other_file.read(reinterpret_cast<char *>(&user_count), sizeof(int));
+    account_other_file.close();
   }
 }
 
 account_system::~account_system(){
-  other_file.open("other_data.txt", std::ios::out | std::ios::binary);
-  other_file.seekp(0, std::ios::beg);
-  other_file.write(reinterpret_cast<char *>(&user_count), sizeof(int));
-  other_file.close();
+  account_other_file.open("account_other_data.txt", std::ios::out | std::ios::binary);
+  account_other_file.seekp(0, std::ios::beg);
+  account_other_file.write(reinterpret_cast<char *>(&user_count), sizeof(int));
+  account_other_file.close();
 }
 
 bool account_system::have_logined(const Char &this_username){

@@ -23,7 +23,7 @@ private:
     ull username;
     index_type(): username(0){}
     index_type(const ull &username_): username(username_){}
-    index_type(const index_type &other): username(other.username){}
+    index_type(const index_type &account_other): username(account_other.username){}
     friend bool operator<(const index_type &x, const index_type &y){
       return x.username < y.username;
     }
@@ -121,7 +121,7 @@ private:
       delete mailAddr;
     }
   };
-  std::fstream ordered_user_file, other_file;
+  std::fstream ordered_user_file, account_other_file;
   BPT<index_type, value_type> *logined, *added;
   int user_count;
   const int length_per_user;

@@ -103,7 +103,7 @@ public:
   friend bool operator!=(const Char &a, const Char &b){
     return !(a == b);
   }
-	friend std::ostream& operator << (std::ostream &os, Char &y){
+	friend std::ostream& operator << (std::ostream &os, const Char &y){
     for(int i = 0; i < y.len; ++i) os << y[i];
     return os;
   } 

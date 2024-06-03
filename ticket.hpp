@@ -29,6 +29,11 @@ struct Date{
     this_file.read(reinterpret_cast<char*>(&month), sizeof(int));
     this_file.read(reinterpret_cast<char*>(&day), sizeof(int));
   }
+  void write(std::fstream &this_file){
+    this_file.write(reinterpret_cast<char*>(&month), sizeof(int));
+    this_file.write(reinterpret_cast<char*>(&day), sizeof(int));
+    return ;
+  }
   Date(const Date &other): month(other.month), day(other.day){}
   Date() = delete;
   friend Date operator+(const Date &now, const int &dday){
@@ -45,6 +50,26 @@ struct Date{
     os << y.month << "-" << y.day;
     return os;
   } 
+  friend bool operator<(const Date &a, const Date &b){
+    if(a.month < b.month) return true;
+    if(a.month == b.month || a.day < b.day) return true;
+    return false;
+  }
+  friend bool operator==(const Date &a, const Date &b){
+    if(a.month == b.month && a.day == b.day) return true;
+    return false;
+  }
+  friend bool operator<=(const Date &a, const Date &b){
+    if(a.month < b.month) return true;
+    if(a.month == b.month || a.day <= b.day) return true;
+    return false;
+  }
+  friend bool operator>(const Date &a, const Date &b){
+    return b < a;
+  }
+  friend bool operator>=(const Date &a, const Date &b){
+    return b <= a;
+  }
 };
 
 struct Moment{
@@ -57,11 +82,36 @@ struct Moment{
     this_file.read(reinterpret_cast<char*>(&hour), sizeof(int));
     this_file.read(reinterpret_cast<char*>(&minute), sizeof(int));
   }
+  void write(std::fstream &this_file){
+    this_file.write(reinterpret_cast<char*>(&hour), sizeof(int));
+    this_file.write(reinterpret_cast<char*>(&minute), sizeof(int));
+    return ;
+  }
   Moment(const Moment &other): hour(other.hour), minute(other.minute){}
   Moment() = delete;
   friend std::ostream& operator << (std::ostream &os, const Moment &y){
     os << y.hour << ":" << y.minute;
     return os;
+  }
+  friend bool operator<(const Moment &a, const Moment &b){
+    if(a.hour < b.hour) return true;
+    if(a.hour == b.hour || a.minute < b.minute) return true;
+    return false;
+  }
+  friend bool operator==(const Moment &a, const Moment &b){
+    if(a.hour == b.hour && a.minute == b.minute) return true;
+    return false;
+  }
+  friend bool operator<=(const Moment &a, const Moment &b){
+    if(a.hour < b.hour) return true;
+    if(a.hour == b.hour || a.minute <= b.minute) return true;
+    return false;
+  }
+  friend bool operator>(const Moment &a, const Moment &b){
+    return b < a;
+  }
+  friend bool operator>=(const Moment &a, const Moment &b){
+    return b <= a;
   }
 };
 
@@ -88,6 +138,10 @@ struct Time{
     date = ans.date;
     moment = ans.moment;
     return *this;
+  }
+  friend std::ostream& operator << (std::ostream &os, const Time &y){
+    os << y.date << " " << y.moment;
+    return os;
   }
 };
 
@@ -177,7 +231,36 @@ private:
     int *prices, *stopoverTimes, *travelTimes;
     Date *saleDate_from, *saleDate_to;
     Moment *startTime;
+    char type;
     train_data() = delete;
+    train_data(
+      const Char &train_id_, 
+      const int &stationNum_, 
+      const int &seatNum_, 
+      sjtu::vector<Char> &stations_, 
+      sjtu::vector<int> &prices_, 
+      const Moment &startTime_, 
+      sjtu::vector<int> &travelTimes_, 
+      sjtu::vector<int> &stopoverTimes_, 
+      sjtu::vector<Date> &saleDate_, 
+      const char &type_
+    ){
+      train_id = new Char(train_id_);
+      stationNum = stationNum_;
+      seatNum = seatNum_;
+      stations = new Char*[stations_.size()];
+      for(int i = 0; i < stations_.size(); ++i) stations[i] = new Char(stations_[i]);
+      prices = new int[prices_.size()];
+      for(int i = 0; i < prices_.size(); ++i) prices[i] = prices_[i];
+      startTime = new Moment(startTime_);
+      travelTimes = new int[travelTimes_.size()];
+      for(int i = 0; i < travelTimes_.size(); ++i) travelTimes[i] = travelTimes_[i];
+      stopoverTimes = new int[stopoverTimes_.size()];
+      for(int i = 0; i < stopoverTimes_.size(); ++i) stopoverTimes[i] = stopoverTimes_[i];
+      saleDate_from = new Date(saleDate_[0]);
+      saleDate_to = new Date(saleDate_[1]);
+      type = type_;
+    }
     train_data(train_system *bel, int loc){
       bel->ordered_train_file.open(bel->ordered_train_file_name, std::ios::in | std::ios::binary);
       bel->ordered_train_file.seekg(loc, std::ios::beg);
@@ -186,7 +269,6 @@ private:
       bel->ordered_train_file.read(reinterpret_cast<char*>(&seatNum), sizeof(int));
       stations = new Char*[stationNum];
       for(int i = 0; i < stationNum; ++i) stations[i] = new Char(bel->ordered_train_file, 31);
-      int tmp_int;
       prices = new int[stationNum];
       stopoverTimes = new int[stationNum];
       travelTimes = new int[stationNum];
@@ -196,13 +278,82 @@ private:
       startTime = new Moment(bel->ordered_train_file);
       saleDate_from = new Date(bel->ordered_train_file);
       saleDate_to = new Date(bel->ordered_train_file);
+      bel->ordered_train_file.read(&type, sizeof(char));
       bel->ordered_train_file.close();
     }
+    void write(train_system *bel, int loc){
+      bel->ordered_train_file.open(bel->ordered_train_file_name, std::ios::in | std::ios::out | std::ios::binary);
+      bel->ordered_train_file.seekp(loc, std::ios::beg);
+      train_id->write(bel->ordered_train_file);
+      bel->ordered_train_file.write(reinterpret_cast<char*>(&stationNum), sizeof(int));
+      bel->ordered_train_file.write(reinterpret_cast<char*>(&seatNum), sizeof(int));
+      for(int i = 0; i < stationNum; ++i) stations[i]->write(bel->ordered_train_file);
+      for(int i = 0; i < stationNum - 1; ++i) bel->ordered_train_file.write(reinterpret_cast<char*>(&prices[i]), sizeof(int));
+      for(int i = 0; i < stationNum - 2; ++i) bel->ordered_train_file.write(reinterpret_cast<char*>(&stopoverTimes[i]), sizeof(int));
+      for(int i = 0; i < stationNum - 1; ++i) bel->ordered_train_file.write(reinterpret_cast<char*>(&travelTimes[i]), sizeof(int));
+      startTime->write(bel->ordered_train_file);
+      saleDate_from->write(bel->ordered_train_file);
+      saleDate_to->write(bel->ordered_train_file);
+      bel->ordered_train_file.write(&type, sizeof(char));
+      bel->ordered_train_file.close();
+    }
+    int get_size(){
+      int n = stationNum;
+      return 30 + 4 + 4 + n * 30 + (n - 1) * 4 + 8 + (n - 1) * 4 + (n - 2) * 4 + 16 + 1; 
+    }
+    ~train_data(){
+      delete train_id;
+      for(int i = 0; i < stationNum; ++i) delete stations[i];
+      delete[] stations;
+      delete[] prices;
+      delete[] stopoverTimes;
+      delete[] travelTimes;
+      delete startTime;
+      delete saleDate_from;
+    }
   };
-  const std::string ordered_train_file_name;
-  std::fstream ordered_train_file;
-  BPT<index_type, value_type> *added, *released;
-
+  const std::string ordered_train_file_name, train_other_file_name;
+  std::fstream ordered_train_file, train_other_file;
+  BPT<index_type, value_type> *added, *released, *train_with_station;
+  int train_count, current_ordered_file_pointer;
+  bool have_released(const Char &train_id);
+  bool have_added(const Char &train_id);
+  int add_train(
+    const Char &train_id, 
+    const int &stationNum, 
+    const int &seatNum, 
+    sjtu::vector<Char> &stations, 
+    sjtu::vector<int> &prices, 
+    const Moment &startTime, 
+    sjtu::vector<int> &travelTimes, 
+    sjtu::vector<int> &stopoverTimes, 
+    sjtu::vector<Date> &saleDate, 
+    const char &type
+  );
+  int release_train(const Char &train_id);
+  int delete_train(const Char &train_id);
+  int query_train(const Char &train_id, const Date &date);
+  void add_train_with_station(const train_data &tmp);
+  void delete_train_with_station(const train_data &tmp);
+public:
+  train_system() = delete;
+  train_system(const int &M, const int &L, const int &MAX_N, const int &MAX_cache);
+  ~train_system();
+  void Add_train(
+    const Char &train_id, 
+    const int &stationNum, 
+    const int &seatNum, 
+    sjtu::vector<Char> &stations, 
+    sjtu::vector<int> &prices, 
+    const Moment &startTime, 
+    sjtu::vector<int> &travelTimes, 
+    sjtu::vector<int> &stopoverTimes, 
+    sjtu::vector<Date> &saleDate, 
+    const char &type
+  );
+  void Release_train(const Char &train_id);
+  void Delete_train(const Char &train_id);
+  void Query_train(const Char &train_id, const Date &date);
 };
 
 

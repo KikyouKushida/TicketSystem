@@ -78,6 +78,7 @@ public:
 	void check_rb();
   bool is_scratch();
   void clear();
+  sjtu::vector<T2> find_with_first(const T1 &x_index);
 };
 
 #include "BPT.cpp"
