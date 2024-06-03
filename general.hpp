@@ -224,4 +224,50 @@ public:
 
 };
 
+template<typename T>
+class QuickSort2 {
+public:
+  static void swap(T &a, T &b){
+    T c = a;
+    a = b;
+    b = c;
+  }
+  static void sort(sjtu::vector<T> &vec, int left, int right) {
+    if(left < right) {
+      int pivotIndex = partition(vec, left, right);
+      sort(vec, left, pivotIndex - 1);
+      sort(vec, pivotIndex + 1, right);
+    }
+  }
+
+  static int partition(sjtu::vector<T> &vec, int left, int right) {
+    T pivot = vec[right];
+    int i = left - 1;
+    for (int j = left; j < right; j++) {
+      if (vec[j] < pivot) { 
+        i++;
+        swap(vec[i], vec[j]);
+      }
+    }
+    swap(vec[i + 1], vec[right]);
+    return i + 1;
+  }
+
+};
+
+template<class T>
+sjtu::vector<T> BigCap(sjtu::vector<T> &a, sjtu::vector<T> &b){
+  sjtu::vector<T> ans;
+  if(a.size() == 0 || b.size() == 0) return ans;
+  QuickSort2<T>::sort(a, 0, a.size() - 1);
+  QuickSort2<T>::sort(b, 0, b.size() - 1);
+  int l = 0, r = 0;
+  while(l < a.size() && r < b.size()){
+    if(a[l].second == b[r].second) ans.push_back(a[l]), ++l, ++r;
+    else if(a[l].second < b[r].second) ++l;
+    else ++r;
+  }
+  return ans;
+}
+
 #endif

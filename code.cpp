@@ -11,6 +11,7 @@
 #include "general.hpp"
 #include "BPT.hpp"
 #include "account.hpp"
+#include "ticket.hpp"
 
 template<class T>
 T str_to_num(const std::string &str){
@@ -23,23 +24,56 @@ T str_to_num(const std::string &str){
 }
 
 template<class T>
-sjtu::vector <T> numlist_to_num(const std::string &str, const int &required_length){
-  sjtu::vector <T> res;
+sjtu::vector<T> numlist_to_num(const std::string &str, const int &required_length){
+  sjtu::vector<T> res;
   for(int i = 0, j; i < str.size(); i = j + 1){
     j = i;
-    if(str[i] == '|') continue;
-    while(j + 1 < str.size() && str[j + 1] != '|') ++j;
+    if(!isdigit(str[i])) continue;
+    while(j + 1 < str.size() && isdigit(str[j + 1])) ++j;
     res.push_back(str_to_num<T>(str.substr(i, j - i + 1)));
   }
   assert(res.size() == required_length);
   return res;
 }
 
+template<class T>
+sjtu::vector<T> numlist_to_num(const std::string &str){
+  sjtu::vector<T> res;
+  for(int i = 0, j; i < str.size(); i = j + 1){
+    j = i;
+    if(!isdigit(str[i])) continue;
+    while(j + 1 < str.size() && isdigit(str[j + 1])) ++j;
+    res.push_back(str_to_num<T>(str.substr(i, j - i + 1)));
+  }
+  return res;
+}
+
+sjtu::vector<Char> zhlist_to_zh(const std::string &str, const int &required_length){
+  sjtu::vector<Char> res;
+  for(int i = 0, j; i < str.size(); i = j + 1){
+    j = i;
+    if(str[i] == '|') continue;
+    while(j + 1 < str.size() && str[j + 1] != '|') ++j;
+    res.push_back(Char(str.substr(i, j - i + 1), 31));
+  }
+  assert(res.size() == required_length);
+  return res;
+}
+
+sjtu::vector<Char> zhlist_to_zh(const std::string &str){
+  sjtu::vector<Char> res;
+  for(int i = 0, j; i < str.size(); i = j + 1){
+    j = i;
+    if(str[i] == '|') continue;
+    while(j + 1 < str.size() && str[j + 1] != '|') ++j;
+    res.push_back(Char(str.substr(i, j - i + 1), 31));
+  }
+  return res;
+}
+
 int to_time(const std::string &time_str){
   return str_to_num<int>(time_str.substr(1, time_str.size() - 2));
 }
-
-account_system Account_system(300, 300, 10000, 400);
 
 char S[100005];
 
@@ -158,7 +192,159 @@ void exit(){
   return ;
 }
 
+void add_train(){
+  sjtu::vector<std::string> input;
+  read_line(input);
+  Char *train_id;
+  int stationNum, seatNum;
+  char type;
+  sjtu::vector<int> prices, stopoverTimes, travelTimes, TMP;
+  sjtu::vector<Char> stations;
+  Date *saleDate_from, *saleDate_to;
+  sjtu::vector<Date> saleDate;
+  Moment *startTime;
+  for(int i = 0; i < input.size(); i += 2){
+    if(input[i] == "-i") train_id = new Char(input[i + 1], 21);
+    else if(input[i] == "-n") stationNum = str_to_num<int> (input[i + 1]);
+    else if(input[i] == "-m") seatNum = str_to_num<int> (input[i + 1]);
+    else if(input[i] == "-s") stations = zhlist_to_zh(input[i + 1]);
+    else if(input[i] == "-p") prices = numlist_to_num<int> (input[i + 1]);
+    else if(input[i] == "-x") {
+      TMP = numlist_to_num<int> (input[i + 1]);
+      startTime = new Moment(TMP[0], TMP[1]);
+    }
+    else if(input[i] == "-t") travelTimes = numlist_to_num<int> (input[i + 1]);
+    else if(input[i] == "-o") stopoverTimes = numlist_to_num<int> (input[i + 1]);
+    else if(input[i] == "-d") {
+      TMP = numlist_to_num<int> (input[i + 1]);
+      saleDate_from = new Date(TMP[0], TMP[1]);
+      saleDate_to = new Date(TMP[2], TMP[3]);
+      saleDate.push_back(*saleDate_from);
+      saleDate.push_back(*saleDate_to);
+    }
+    else if(input[i] == "-y") type = input[i + 1][0];
+    else assert(0);
+  }
+  Train_system.Add_train(*train_id, stationNum, seatNum, stations, prices, *startTime, travelTimes, stopoverTimes, saleDate, type);
+  delete train_id;
+  delete saleDate_from;
+  delete saleDate_to;
+  delete startTime;
+  return ;
+}
+
+void delete_train(){
+  sjtu::vector<std::string> input;
+  read_line(input);
+  Char *train_id;
+  for(int i = 0; i < input.size(); i += 2){
+    if(input[i] == "-i") train_id = new Char(input[i + 1], 21);
+    else assert(0);
+  }
+  Train_system.Delete_train(*train_id);
+  delete train_id;
+  return ;
+}
+
+void release_train(){
+  sjtu::vector<std::string> input;
+  read_line(input);
+  Char *train_id;
+  for(int i = 0; i < input.size(); i += 2){
+    if(input[i] == "-i") train_id = new Char(input[i + 1], 21);
+    else assert(0);
+  }
+  Train_system.Release_train(*train_id);
+  delete train_id;
+  return ;
+}
+
+void query_train(){
+  sjtu::vector<std::string> input;
+  read_line(input);
+  Char *train_id;
+  Date *date;
+  sjtu::vector<int> TMP;
+  for(int i = 0; i < input.size(); i += 2){
+    if(input[i] == "-i") train_id = new Char(input[i + 1], 21);
+    else if(input[i] == "-d"){
+      TMP = numlist_to_num<int> (input[i + 1]);
+      date = new Date(TMP[0], TMP[1]);
+    }
+    else assert(0);
+  }
+  Train_system.Query_train(*train_id, *date);
+  delete train_id;
+  delete date;
+  return ;
+}
+
+void query_ticket(){
+  sjtu::vector<std::string> input;
+  read_line(input);
+  Char *station_from, *station_to;
+  Date *date;
+  std::string sort_parameter;
+  sjtu::vector<int> TMP;
+  for(int i = 0; i < input.size(); i += 2){
+    if(input[i] == "-s") station_from = new Char(input[i + 1], 31);
+    else if(input[i] == "-t") station_to = new Char(input[i + 1], 31);
+    else if(input[i] == "-d"){
+      TMP = numlist_to_num<int> (input[i + 1]);
+      date = new Date(TMP[0], TMP[1]);
+    }
+    else if(input[i] == "-p") sort_parameter = input[i + 1];
+  }
+  Train_system.Query_ticket(*station_from, *station_to, *date, sort_parameter);
+  delete station_from;
+  delete station_to;
+  delete date;
+  return ;
+}
+
+void query_transfer(){
+  sjtu::vector<std::string> input;
+  read_line(input);
+  Char *station_from, *station_to;
+  Date *date;
+  std::string sort_parameter;
+  sjtu::vector<int> TMP;
+  for(int i = 0; i < input.size(); i += 2){
+    if(input[i] == "-s") station_from = new Char(input[i + 1], 31);
+    else if(input[i] == "-t") station_to = new Char(input[i + 1], 31);
+    else if(input[i] == "-d"){
+      TMP = numlist_to_num<int> (input[i + 1]);
+      date = new Date(TMP[0], TMP[1]);
+    }
+    else if(input[i] == "-p") sort_parameter = input[i + 1];
+  }
+  Train_system.Query_transfer(*station_from, *station_to, *date, sort_parameter);
+  delete station_from;
+  delete station_to;
+  delete date;
+  return ;
+}
+
+void buy_ticket(){
+
+}
+
+void refund_ticket(){
+
+}
+
+void clean(){
+
+}
+
+void query_order(){
+
+}
+
 //#include <unistd.h>
+
+account_system Account_system(300, 300, 10000, 400);
+train_system Train_system(300, 300, 10000, 400); // to be modified
 
 int main(){
   //freopen("../1.in", "r", stdin);
@@ -175,6 +361,16 @@ int main(){
     else if(oper_str == "logout") logout();
     else if(oper_str == "query_profile") query_profile();
     else if(oper_str == "modify_profile") modify_profile();
+    else if(oper_str == "add_train") add_train();
+    else if(oper_str == "release_train") release_train();
+    else if(oper_str == "delete_train") delete_train();
+    else if(oper_str == "query_train") query_train();
+    else if(oper_str == "query_ticket") query_ticket();
+    else if(oper_str == "query_transfer") query_transfer();
+    else if(oper_str == "buy_ticket") buy_ticket();
+    else if(oper_str == "refund_ticket") refund_ticket();
+    else if(oper_str == "query_order") query_order();
+    else if(oper_str == "clean") clean();
     else if(oper_str == "exit"){ exit(); break; }
     //sleep(0.2);
   }

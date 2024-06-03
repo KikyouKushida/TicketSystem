@@ -70,6 +70,16 @@ struct Date{
   friend bool operator>=(const Date &a, const Date &b){
     return b <= a;
   }
+  friend int operator-(const Date &a, const Date &b){
+    int ans = 0;
+    Date c = b;
+    while(a.month != c.month){
+      ans += day_per_month[c.month] - c.day + 1;
+      c.month += 1;
+      c.day = 1;
+    }
+    return ans + a.day - c.day;
+  }
 };
 
 struct Moment{
@@ -199,6 +209,73 @@ private:
       return ;
     }
   };
+  struct index_type2{
+    ull station, train_id;
+    index_type2(const ull &station_, const ull &train_id_): station(station_), train_id(train_id_){}
+    index_type2(const index_type2 &other): station(other.station), train_id(other.train_id){}
+    ull first(){
+      return station;
+    }
+    void Write(char *s, int &loc){
+      s[loc] = static_cast<unsigned char>((station >> 56) & 0xFF);
+      s[loc + 1] = static_cast<unsigned char>((station >> 48) & 0xFF);
+      s[loc + 2] = static_cast<unsigned char>((station >> 40) & 0xFF);
+      s[loc + 3] = static_cast<unsigned char>((station >> 32) & 0xFF);
+      s[loc + 4] = static_cast<unsigned char>((station >> 24) & 0xFF);
+      s[loc + 5] = static_cast<unsigned char>((station >> 16) & 0xFF);
+      s[loc + 6] = static_cast<unsigned char>((station >> 8) & 0xFF);
+      s[loc + 7] = static_cast<unsigned char>(station & 0xFF);
+      loc = loc + 8;
+      s[loc] = static_cast<unsigned char>((train_id >> 56) & 0xFF);
+      s[loc + 1] = static_cast<unsigned char>((train_id >> 48) & 0xFF);
+      s[loc + 2] = static_cast<unsigned char>((train_id >> 40) & 0xFF);
+      s[loc + 3] = static_cast<unsigned char>((train_id >> 32) & 0xFF);
+      s[loc + 4] = static_cast<unsigned char>((train_id >> 24) & 0xFF);
+      s[loc + 5] = static_cast<unsigned char>((train_id >> 16) & 0xFF);
+      s[loc + 6] = static_cast<unsigned char>((train_id >> 8) & 0xFF);
+      s[loc + 7] = static_cast<unsigned char>(train_id & 0xFF);
+      loc = loc + 8; 
+    }
+    void Read(char *s, int &loc){
+      station = (ull(static_cast<unsigned char>(s[loc])) << 56) |
+          (ull(static_cast<unsigned char>(s[loc + 1])) << 48) |
+          (ull(static_cast<unsigned char>(s[loc + 2])) << 40) |
+          (ull(static_cast<unsigned char>(s[loc + 3])) << 32) |
+          (ull(static_cast<unsigned char>(s[loc + 4])) << 24) |
+          (ull(static_cast<unsigned char>(s[loc + 5])) << 16) |
+          (ull(static_cast<unsigned char>(s[loc + 6])) << 8) |
+          (ull(static_cast<unsigned char>(s[loc + 7])) << 0);
+      loc = loc + 8;
+      train_id = (ull(static_cast<unsigned char>(s[loc])) << 56) |
+          (ull(static_cast<unsigned char>(s[loc + 1])) << 48) |
+          (ull(static_cast<unsigned char>(s[loc + 2])) << 40) |
+          (ull(static_cast<unsigned char>(s[loc + 3])) << 32) |
+          (ull(static_cast<unsigned char>(s[loc + 4])) << 24) |
+          (ull(static_cast<unsigned char>(s[loc + 5])) << 16) |
+          (ull(static_cast<unsigned char>(s[loc + 6])) << 8) |
+          (ull(static_cast<unsigned char>(s[loc + 7])) << 0);
+      loc = loc + 8;
+    }
+    friend bool operator<(const index_type2 &a, const index_type2 &b){
+      if(a.station < b.station) return true;
+      if(a.station == b.station && a.train_id < b.train_id) return true;
+      return false;
+    }
+    friend bool operator<=(const index_type2 &a, const index_type2 &b){
+      if(a.station < b.station) return true;
+      if(a.station == b.station && a.train_id <= b.train_id) return true;
+      return false;
+    } 
+    friend bool operator>(const index_type2 &a, const index_type2 &b){
+      return b < a;
+    }
+    friend bool operator>=(const index_type2 &a, const index_type2 &b){
+      return b <= a;
+    } 
+    friend bool operator==(const index_type2 &a, const index_type2 &b){
+      return a.station == b.station && a.train_id == b.train_id;
+    }
+  };
   struct value_type{
     int loc;
     value_type(): loc(-1){}
@@ -312,9 +389,27 @@ private:
       delete saleDate_from;
     }
   };
+  struct Empty{
+    Empty(){}
+    void write(char *s, int *loc_){}
+  }empty;
+  struct QT{
+    Time *leavingTime, *arrivingTime;
+    Char *train_id;
+    int price, seat, ttime;
+    QT(const Time &leavingTime_, const Time &arrivingTime_, const Char &train_id_, const int &price_, const int &seat_, const int &ttime_){
+      leavingTime = new Time(leavingTime_);
+      arrivingTime = new Time(arrivingTime_);
+      train_id = new Char(train_id_);
+      price = price_;
+      seat = seat_;
+      ttime = ttime_;
+    }
+  };
   const std::string ordered_train_file_name, train_other_file_name;
   std::fstream ordered_train_file, train_other_file;
-  BPT<index_type, value_type> *added, *released, *train_with_station;
+  BPT<index_type, value_type> *added, *released;
+  BPT<index_type2, Empty> *train_with_station;
   int train_count, current_ordered_file_pointer;
   bool have_released(const Char &train_id);
   bool have_added(const Char &train_id);
@@ -335,6 +430,7 @@ private:
   int query_train(const Char &train_id, const Date &date);
   void add_train_with_station(const train_data &tmp);
   void delete_train_with_station(const train_data &tmp);
+  int query_ticket(const Char &station_from, const Char &station_to, const Date &date, const std::string &sort_parameter);
 public:
   train_system() = delete;
   train_system(const int &M, const int &L, const int &MAX_N, const int &MAX_cache);
@@ -354,6 +450,8 @@ public:
   void Release_train(const Char &train_id);
   void Delete_train(const Char &train_id);
   void Query_train(const Char &train_id, const Date &date);
+  void Query_ticket(const Char &station_from, const Char &station_to, const Date &date, const std::string &sort_parameter);
+  void Query_transfer(const Char &station_from, const Char &station_to, const Date &date, const std::string &sort_parameter);
 };
 
 
